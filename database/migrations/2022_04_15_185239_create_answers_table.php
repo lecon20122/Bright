@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('phone');
+        Schema::create('answers', function (Blueprint $table) {
+            $table->id();
+            $table->string('answer');
+            $table->foreignId('question_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('answers');
     }
 };
