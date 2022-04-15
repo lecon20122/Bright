@@ -1,0 +1,38 @@
+.navbar {
+    border-bottom: solid 5px #2d3536;
+    background-color: #dad3c8;
+}
+
+.nav-link {
+    color: #02212b;
+    font-size: 24px;
+}
+
+header {
+    background-color: #ffffff;
+}
+
+header h1 {
+    color: #2db1da;
+}
+
+footer {
+    background-color: #dad3c8;
+    border-bottom: solid 5px #2d3536;
+    border-top: solid 5px #2d3536;
+    text-align: center;
+    color: #2db1da;
+}
+
+.nav-item.active>.nav-link {
+    color: #02212b !important;
+    font-weight: bold;
+}
+
+.brand {
+    color: #02212b;
+}
+
+.doctor h3 {
+    color: #02212b;
+}
