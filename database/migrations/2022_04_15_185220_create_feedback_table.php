@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('star')->max(5);
             $table->mediumText('comment');
-            $table->foreign('doctor_id')->on('users')->references('id')->restrictOnDelete()->restrictOnUpdate();
+            $table->foreignId('doctor_id')->references('id')->on('users');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

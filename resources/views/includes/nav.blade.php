@@ -17,7 +17,7 @@
                     <a class="nav-link" href="#">اعرفني</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">تسجيل</a>
+                    <a class="nav-link" href="{{ route('register') }}">تسجيل</a>
                 </li>
 
             </ul>

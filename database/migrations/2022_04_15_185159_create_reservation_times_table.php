@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->time('from');
             $table->time('to');
-            $table->foreign('doctor_id')->on('users')->references('id')->restrictOnDelete()->restrictOnUpdate();
+            $table->foreignId('doctor_id')->references('id')->on('users');
             $table->foreignId('reservation_day_id')->constrained();
             $table->timestamps();
         });
