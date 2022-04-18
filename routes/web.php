@@ -25,3 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('doctor' , DoctorController::class);
+
+Route::get('/slideshow', [App\Http\Controllers\slideshowController::class, 'slideshow'])->name('slideshow');

@@ -1,11 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('content')
-<div class="container">
+<style>
+    .font-color {
+        color: #3b5ec6;
+        font-weight: bolder;
+       text-align: center;
+
+    }
+    .font-color2{
+        color: #3b5ec6;
+        font-weight: bolder;
+    }
+
+</style>
+<div class="container font-color">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('THANK YOU') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))

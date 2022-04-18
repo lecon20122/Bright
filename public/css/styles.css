@@ -3,17 +3,22 @@
     background-color: #dad3c8;
 }
 
-.nav-link {
-    color: #02212b;
+.nav-item .nav-link  {
+
+    color: #3e5e93;
     font-size: 24px;
 }
 
 header {
     background-color: #ffffff;
+
+
 }
 
-header h1 {
-    color: #2db1da;
+
+header h1 { padding-right: 80px;
+    color: #4267a2;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 footer {
@@ -21,18 +26,28 @@ footer {
     border-bottom: solid 5px #2d3536;
     border-top: solid 5px #2d3536;
     text-align: center;
-    color: #2db1da;
+    color: #3e5e93;
+    font-weight: bolder;
 }
 
-.nav-item.active>.nav-link {
-    color: #02212b !important;
-    font-weight: bold;
+.nav-item.nav-link.active{
+    color:#5e2558!important;  font-weight: bold;
 }
-
-.brand {
-    color: #02212b;
+.navbar-brand {
+    color: #3e5e93;
+    font-weight: bolder;
 }
 
 .doctor h3 {
     color: #02212b;
+}
+.backg{
+    min-height: 30vh;
+    background-image:linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)),
+        url("../images/try.png");
+        background-position: center;
+    background-size: cover;
 }
