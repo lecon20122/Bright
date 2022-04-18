@@ -6,5 +6,5 @@ class DataBaseEnum
 {
     CONST PATIENT = 'Patient';
     CONST DOCTOR = 'Doctor';
-    CONST SHADOWTEACHER = 'SHADOWTEACHER';
+    CONST SHADOW_TEACHER = 'Shadow Teacher';
 }

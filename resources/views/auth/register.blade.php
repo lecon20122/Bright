@@ -14,14 +14,11 @@
     }
 
 </style>
-    <div class="container backg">
-
-        <div class="row justify-content-center ">
-            <div class="col-md-4">
+    <div class="">
+        <div class="row justify-content-start">
+            <div class="col-md-4 mx-auto">
                 <div class="card">
-
                     <div class="card-header font-color h4">{{ __('Register') }}</div>
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -140,14 +137,13 @@
                                     </div>
                                     <div class="form-check font-color2 ">
                                         <input class="form-check-input" type="radio" name="type"
-                                               id="exampleRadios1" value="{{\App\Enums\DataBaseEnum::SHADOWTEACHER}}">
+                                               id="exampleRadios1" value="{{\App\Enums\DataBaseEnum::SHADOW_TEACHER}}">
                                         <label class="form-check-label" for="exampleRadios1">
                                            SHADOW TEACHER
                                         </label>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
@@ -158,6 +154,9 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-6 backg">
+
             </div>
         </div>
     </div>

@@ -13,12 +13,12 @@
         font-weight: bolder;
     }
     </style>
-<div class="container backg">
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-6 pt-5">
             <div class="card">
                 <div class="card-header font-color h5 ">{{ __('Login') }}</div>
- 
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

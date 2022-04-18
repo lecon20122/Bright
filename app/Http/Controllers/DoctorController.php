@@ -62,8 +62,6 @@ class DoctorController extends Controller
         } catch (Exception $exception) {
             return redirect()->back()->with('error' , $exception->getMessage());
         }
-
-
     }
 
     /**

@@ -63,8 +63,8 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-6">
-                <img src="{{ asset('images/lagog ff.jfif') }}" alt="" srcset="">
+            <div class="col-sm-6 mt-2">
+                <img src="{{ asset('images/lagog ff.jfif') }}" class="w-25" alt="" srcset="">
             </div>
 
             <div class="col-sm-6 d-flex justify-content-center">
