@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.welcome')
 
 @section('content')
 <style>
@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-0">
+                            <div class="row mb-5">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}

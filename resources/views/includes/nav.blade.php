@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md">
     <div class="container">
-        <a class="navbar-brand brand" href="#">BRIGHT</a>
+<img src="{{ asset('images/lagog ff.jfif') }}" class=" logo" alt="">
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +60,7 @@
 </ul>
     </div><!-- container -->
 </nav>
-<header class="py-2">
+<!--<header class="py-2">
     <div class="container">
         <div class="row">
 
@@ -69,7 +70,7 @@
 
             <div class="col-sm-6 d-flex justify-content-center">
                 <h1 class="my-3 text-uppercase display-4 font-weight-bold we ">WE SPECIAL</h1>
-            </div>
+            </div> -->
 
         </div><!-- row -->
     </div><!-- container -->

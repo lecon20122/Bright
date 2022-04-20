@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\categoriescontroller;
 use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,18 @@ Auth::routes();
 
 Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 Route::resource('doctor' , DoctorController::class);
 
 Route::get('/', [App\Http\Controllers\slideshowController::class, 'slideshow'])->name('slideshow');
+
+//categories
+//create
+Route::get('create', [App\Http\Controllers\categoriesController::class, 'create'])->name('create');
+Route::post('store', [App\Http\Controllers\categoriesController::class, 'store'])->name('store');
+//update
+Route::get('edit/{id}', [App\Http\Controllers\categoriesController::class, 'edit'])->name('edit');
+Route::post('update/{id}', [App\Http\Controllers\categoriesController::class, 'update'])->name('update');
+
+//delete
+Route::get('delete/{id}', [App\Http\Controllers\categoriesController::class, 'delete'])->name('delete');
+
