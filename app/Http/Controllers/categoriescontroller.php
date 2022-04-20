@@ -9,7 +9,10 @@ class categoriescontroller extends Controller
 {
     public function index()
     {
-        return view('admin.modules.categories.index');
+        $categories = Category::all();
+        return view('admin.modules.categories.index' ,[
+            'categories' => $categories,
+        ]);
     }
 
     function create()
