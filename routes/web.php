@@ -29,6 +29,7 @@ Route::resource('doctor' , DoctorController::class);
 Route::get('/', [App\Http\Controllers\slideshowController::class, 'slideshow'])->name('slideshow');
 
 //categories
+Route::get('categories', [App\Http\Controllers\categoriesController::class, 'index'])->name('categories.index');
 //create
 Route::get('create', [App\Http\Controllers\categoriesController::class, 'create'])->name('create');
 Route::post('store', [App\Http\Controllers\categoriesController::class, 'store'])->name('store');

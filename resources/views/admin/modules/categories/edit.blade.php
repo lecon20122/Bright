@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header font-color h4">{{ __('categories') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('/update',$categories->id) }}">
+                    <form method="POST" action="{{ route('update',$categories->id) }}">
                         @csrf
 
                         <div class="row mb-3 font-color2">
