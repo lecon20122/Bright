@@ -1,46 +1,35 @@
-@extends('layouts.welcome')
+@extends('admin.layout.admin-layout')
 
 @section('content')
 
-<div class="">
-    <div class="row justify-content-start">
-        <div class="col-md-4 mx-auto">
-            <div class="card">
-                <div class="card-header font-color h4">{{ __('categories') }}</div>
-                <div class="card-body">
+<div >
+    <div>
+        <div class="row justify-content-start">
+            <div class="col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-header font-color h4">{{ __(' Add Categories') }}</div>
+                    <div class="card-body">
                     <form method="POST" action="{{ route('update',$categories->id) }}">
                         @csrf
 
-                        <div class="row mb-3 font-color2">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6 font-color2">
-                                <input id="name" type="text"class="form-control item"
-                                       class="form-control @error('name') is-invalid @enderror" name="name"
-                                       value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Parent Category</label>
+                            <select class="form-control" name="parent_id" id="exampleFormControlSelect1">
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-
-
-
-                        <div class="row mb-5">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Update') }}
-                                </button>
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Category Name</label>
+                            <input type="name" class="form-control" name="name" id="exampleFormControlInput1" placeholder="name@example.com">
                         </div>
+                        <button type="submit" class="btn btn-primary mt-3">UPDATE</button>
                     </form>
                 </div>
             </div>
+    @include('includes.success-alert')
         </div>
-
     </div>
 </div>
 

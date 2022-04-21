@@ -43,10 +43,9 @@ class categoriescontroller extends Controller
     function update(Request $request, $id)
     {
 
-        $categories = Category::find($id);
-        $categories->name = $request->name;
-        $categories->save;
-        return Redirect('');
+       // $categories = Category::find($id);
+        $categories = Category::updating($request->all());
+        return Redirect()->back()->with('success', 'Category updated Successfully');
     }
 
 
