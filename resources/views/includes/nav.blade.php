@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto d-flex flex-row-reverse ">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('slideshow') }}">الصفحة الرئيسية</a>
+                    <a class="nav-link" href="{{ route('home') }}">الصفحة الرئيسية</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"> للكشف</a>

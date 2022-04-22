@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-class categoriescontroller extends Controller
+class CategoryController extends Controller
 {
     public function index()
     {
         $categories = Category::all();
-        return view('admin.modules.categories.index' ,[
+        return view('admin.modules.categories.index', [
             'categories' => $categories,
         ]);
     }
@@ -26,35 +26,32 @@ class categoriescontroller extends Controller
 
     function store(Request $request)
     {
-        $categories = Category::create($request->all());
+        Category::create($request->all());
         return Redirect()->back()->with('success', 'Category Added Successfully');
     }
 
 
-    function edit($id)
+    function edit(Category $category)
     {
-        $categories = Category::find($id);
+        $categories = Category::all();
         return view('admin.modules.categories.edit', [
+            'category' => $category,
             'categories' => $categories
         ]);
     }
 
 
-    function update(Request $request, $id)
+    function update(Category $category, Request $request)
     {
-
-       // $categories = Category::find($id);
-        $categories = Category::updating($request->all());
-        return Redirect()->back()->with('success', 'Category updated Successfully');
+        // dd($request->all());
+        $category->update($request->all());
+        return Redirect()->to('admin/categories')->with('success', 'Category updated Successfully');
     }
 
 
-    function delete($id)
+    function delete(Category $category)
     {
-        $categories = Category::find($id);
-        $categories->delete();
+        $category->delete();
         return redirect('');
-
     }
-
 }
