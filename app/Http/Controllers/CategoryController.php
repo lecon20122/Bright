@@ -15,7 +15,7 @@ class CategoryController extends Controller
         ]);
     }
 
-    function create()
+    public function create()
     {
         $categories = Category::get();
         return view('admin.modules.categories.create', [
@@ -24,14 +24,14 @@ class CategoryController extends Controller
     }
 
 
-    function store(Request $request)
+    public function store(Request $request)
     {
         Category::create($request->all());
         return Redirect()->back()->with('success', 'Category Added Successfully');
     }
 
 
-    function edit(Category $category)
+    public function edit(Category $category)
     {
         $categories = Category::all();
         return view('admin.modules.categories.edit', [
@@ -41,7 +41,7 @@ class CategoryController extends Controller
     }
 
 
-    function update(Category $category, Request $request)
+    public function update(Category $category, Request $request)
     {
         // dd($request->all());
         $category->update($request->all());
@@ -49,7 +49,7 @@ class CategoryController extends Controller
     }
 
 
-    function delete(Category $category)
+    public function delete(Category $category)
     {
         $category->delete();
         return redirect('');

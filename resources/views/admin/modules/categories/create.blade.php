@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header font-color h4">{{ __(' Add Categories') }}</div>
                     <div class="card-body">
-                        <form method="POST" class="" action="{{ route('store') }}">
+                        <form method="POST" class="" action="{{ route('categories.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Select Parent Category</label>
