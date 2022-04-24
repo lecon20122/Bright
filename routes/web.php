@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +17,18 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
 //Routes Need Authentication
 Route::middleware('auth')->group(function () {
-    Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+    Route::get('/welcome', [HomeController::class, 'welcome'])->name('welcome');
+
+
+
+
+
 });
 
 
