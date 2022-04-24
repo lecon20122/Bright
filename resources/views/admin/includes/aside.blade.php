@@ -34,6 +34,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('question.index') }}" class="nav-link">
+                        <p>
+                            Questions
+                        </p>
+                        <i class="fas fa-question-circle"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-arrow-right text-danger"></i>
                         <p class="text-danger">
