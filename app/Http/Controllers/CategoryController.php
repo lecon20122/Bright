@@ -33,6 +33,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
+//        dd($category);
         $categories = Category::all();
         return view('admin.modules.categories.edit', [
             'category' => $category,
@@ -41,11 +42,11 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Category $category, Request $request)
+    public function update($id, Request $request)
     {
-        // dd($request->all());
+        $category = Category::find($id)->first();
         $category->update($request->all());
-        return Redirect()->to('admin/categories')->with('success', 'Category updated Successfully');
+        return redirect()->to('admin/categories')->with('success', 'Category updated Successfully');
     }
 
 

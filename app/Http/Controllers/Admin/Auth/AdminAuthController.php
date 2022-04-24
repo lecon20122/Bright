@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class AdminAuthController extends Controller
 {
     public function login()
     {
@@ -20,6 +20,14 @@ class LoginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->to('/admin/dashboard');
+        } else {
+            return redirect()->back()->with('error', 'Wrong Credentials');
         }
+    }
+
+    public function logout()
+    {
+        auth::logout();
+        return redirect('/');
     }
 }
