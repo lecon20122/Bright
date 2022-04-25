@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+
+    public function scopeParent($query)
+    {
+        return $query->whereNull('category_id');
+
+    }
+
+    public function scopeChild($query)
+    {
+        return $query->whereNotNull('question_id');
+    }
 }

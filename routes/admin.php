@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController  ;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +16,9 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::post('categories/{id}/update', [CategoryController::class, 'update'])->name('categories.update');
     //question
-    Route::resource('question', QuestionController::class);
+    Route::resource('question', QuestionController::class)->except(['show', 'update']);
+    Route::post('question/{id}/update', [QuestionController::class, 'update'])->name('questions.update');
+    Route::resource('answer', AnswerController::class);
 });
 
 

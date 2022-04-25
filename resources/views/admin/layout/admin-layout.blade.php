@@ -17,6 +17,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin/css/adminlte.min.css') }}">
 </head>
+<style>
+    .text{
+        color: black;
+        font-size: 50px;
+        text-align: center;
+    }
+</style>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -34,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Starter Page</h1>
+                        <h1 class="m-0"></h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -51,7 +58,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content">
                 @yield('content')
         </div>
-        <!-- /.content -->
+<div>
+    <br>
+    <br>
+        <p class="text"> WELCOME
+       <br>
+          {{ auth()->user()->name }}
+        </p>
+        </div>
     </div>
     <!-- /.content-wrapper -->
 
@@ -73,7 +87,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.min.js') }}">
+
+
+
+</script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->

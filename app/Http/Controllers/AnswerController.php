@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Question;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 
-class QuestionController extends Controller
+class AnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,22 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $Questions = Question::all();
-        return view('admin.modules.questions.index', [
-            'questions' =>  $Questions,
+        $Answers = Answer::all();
+        return view('admin.modules.answer.index', [
+            'answser' => $Answers,
         ]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        $Questions = Question::all();
-        return view('admin.modules.questions.create', [
-            'questions' => $Questions,
+        $Answers = Answer::all();
+        return view('admin.modules.answer.create', [
+            'answer'=> $Answers,
         ]);
     }
 
@@ -36,9 +41,8 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-
-        Question::create($request->all());
-        return Redirect()->back()->with('success', 'question Added Successfully');
+        Answer::create($request->all());
+        return Redirect()->back()->with('success', 'Answer Added Successfully');
     }
 
     /**
@@ -48,7 +52,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show($id)
-    //{
+   // {
         //
     //}
 
@@ -58,13 +62,11 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $Question)
+    public function edit(Answer $Answers)
     {
-
-        $Questions = Question::all( );
-        return view('admin.modules.questions.edit', [
-            'question' => $Question,
-            'questions' => $Questions
+        $Answers = Answer::all( );
+        return view('admin.modules.answer.edit', [
+            'Answer' => $Answers,
 
         ]);
     }
@@ -76,12 +78,14 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+
+        public function update($id, Request $request)
     {
-        $Question = Question::find($id)->first();
-        $Question->update($request->all());
-        return redirect()->to('admin/question')->with('success', 'question updated Successfully');
+        $Answers = Answer::find($id)->first();
+        $Answers->update($request->all());
+        return redirect()->to('admin/answer')->with('success', 'answer updated Successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -89,9 +93,8 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Question $Question)
+    public function destroy($id)
     {
-        $Question->delete();
-        return redirect('');
+        //
     }
 }

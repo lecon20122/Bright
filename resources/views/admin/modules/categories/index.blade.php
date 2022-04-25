@@ -9,6 +9,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Parent</th>
                 <th scope="col">Controls</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -19,6 +20,8 @@
                     <td>{{ $category->parent_id }}</td>
                     <td><a href="{{ route('categories.edit', ['category' => $category]) }}"> {{ trans('Edit') }}
                         </a></td>
+                    <td> <a href=""> {{ trans('DELETE') }}
+                    </a> </td>
                 </tr>
             @endforeach
             </tbody>

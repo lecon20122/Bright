@@ -35,10 +35,11 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('question.index') }}" class="nav-link">
+                        <i class="fas fa-question-circle"></i>
                         <p>
                             Questions
                         </p>
-                        <i class="fas fa-question-circle"></i>
+
                     </a>
                 </li>
                 <li class="nav-item">
