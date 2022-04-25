@@ -12,11 +12,13 @@ Route::middleware('auth:admin')->group(function () {
     //dashboard
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
-    Route::resource('categories', CategoryController::class)->except(['show', 'update']);
+    Route::resource('categories', CategoryController::class)->except(['show', 'update' , 'destroy']);
 
     Route::post('categories/{id}/update', [CategoryController::class, 'update'])->name('categories.update');
+    Route::get('categories/{id}/delete', [CategoryController::class, 'destroy'])->name('categories.destroy');
     //question
-    Route::resource('question', QuestionController::class)->except(['show', 'update']);
+    Route::resource('question', QuestionController::class)->except(['show', 'update' , 'destroy']);
+    Route::get('questions/{id}/delete', [QuestionController::class, 'destroy'])->name('questions.destroy');
     Route::post('question/{id}/update', [QuestionController::class, 'update'])->name('questions.update');
     Route::resource('answer', AnswerController::class);
 });

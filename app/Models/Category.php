@@ -11,6 +11,11 @@ class Category extends Model
 
     protected $guarded = [];
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
     public function scopeParent($query)
     {
         return $query->whereNull('parent_id');

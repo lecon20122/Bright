@@ -2,6 +2,8 @@
 @section('content')
     <div class="container-fluid">
         @include('includes.success-alert')
+        @include('includes.error-alert')
+        @include('includes.create-button' , ['route' => route('categories.create')])
         <table class="table">
             <thead class="thead-dark">
             <tr>
@@ -20,7 +22,7 @@
                     <td>{{ $category->parent_id }}</td>
                     <td><a href="{{ route('categories.edit', ['category' => $category]) }}"> {{ trans('Edit') }}
                         </a></td>
-                    <td> <a href=""> {{ trans('DELETE') }}
+                    <td> <a href="{{route('categories.destroy' , ['id' => $category->id])}}"> {{ trans('DELETE') }}
                     </a> </td>
                 </tr>
             @endforeach
