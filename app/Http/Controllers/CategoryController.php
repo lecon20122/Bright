@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class CategoryController extends Controller
 {
@@ -50,9 +51,9 @@ class CategoryController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        $category = Category::find($id)->first();
+        $category = Category::find($id);
         $category->delete();
         return redirect()->to('admin/categories')->with('success', 'Category Deleted Successfully');
     }

@@ -69,8 +69,9 @@ class QuestionController extends Controller
     {
         $Questions = Question::all();
         return view('admin.modules.questions.edit', [
-            'question' => $Question,
-            'questions' => $Questions
+                'question'=>$Question,
+            'questions' => $Questions,
+            'categories' => Category::all(),
 
         ]);
     }
