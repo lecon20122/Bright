@@ -34,7 +34,6 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-//        dd($category);
         $categories = Category::all();
         return view('admin.modules.categories.edit', [
             'category' => $category,

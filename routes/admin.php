@@ -18,7 +18,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('categories/{id}/delete', [CategoryController::class, 'destroy'])->name('categories.destroy');
     //question
     Route::resource('question', QuestionController::class)->except(['show', 'update' , 'destroy']);
-    Route::get('questions/{id}/delete', [QuestionController::class, 'destroy'])->name('questions.destroy');
+    Route::get('question/{id}/delete', [QuestionController::class, 'destroy'])->name('questions.destroy');
     Route::post('question/{id}/update', [QuestionController::class, 'update'])->name('questions.update');
     Route::resource('answer', AnswerController::class);
 });

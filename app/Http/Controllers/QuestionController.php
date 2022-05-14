@@ -65,14 +65,11 @@ class QuestionController extends Controller
      * @param Question $Question
      * @return Application|Factory|View
      */
-    public function edit(Question $Question)
+    public function edit(Question $question)
     {
-        $Questions = Question::all();
         return view('admin.modules.questions.edit', [
-                'question'=>$Question,
-            'questions' => $Questions,
+            'question' => $question,
             'categories' => Category::all(),
-
         ]);
     }
 
@@ -85,9 +82,13 @@ class QuestionController extends Controller
      */
     public function update($id, Request $request)
     {
-        $Question = Question::find($id)->first();
-        $Question->update($request->all());
-        return redirect()->to('admin/question')->with('success', 'question updated Successfully');
+        try {
+            $Question = Question::find($id);
+            $Question->update($request->all());
+            return redirect()->to('admin/question')->with('success', 'question updated Successfully');
+        } catch (\Exception $exception) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
     }
 
     /**
