@@ -33,7 +33,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = User::doctor()->paginate(15);
+
     }
 
     /**
@@ -95,7 +96,9 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //find by id
+
+        //update($request->all)
     }
 
     /**
@@ -107,5 +110,12 @@ class DoctorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approveDoctor($id)
+    {
+        //find by id
+
+        //update(['is_approved' => $request->is_approved])
     }
 }

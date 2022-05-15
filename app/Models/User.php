@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\DataBaseEnum;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -51,5 +52,15 @@ class User extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function scopeDoctor($query)
+    {
+        return $query->where('type', DataBaseEnum::DOCTOR);
+    }
+
+    public function scopePatient($query)
+    {
+        return $query->where('type', DataBaseEnum::PATIENT);
     }
 }
