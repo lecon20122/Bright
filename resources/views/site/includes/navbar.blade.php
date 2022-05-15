@@ -24,6 +24,19 @@
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact Us</a>
         </div>
-        <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
+        {{-- TODO: Make A dynamic login / register links --}}
+        @auth
+            <a href="#" class="nav-item nav-link active">{{ auth()->user()->name }}</a>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button class="btn btn-primary rounded-pill px-3 d-none d-lg-block ms-1" type="submit">logout</button>
+            </form>
+        @endauth
+        @guest
+            <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{ route('register') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block ms-1">Register<i
+                    class="fa fa-arrow-right ms-3"></i></a>
+        @endguest
     </div>
 </nav>
