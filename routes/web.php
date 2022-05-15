@@ -24,11 +24,6 @@ Auth::routes();
 //Routes Need Authentication
 Route::middleware('auth')->group(function () {
     Route::get('/welcome', [HomeController::class, 'welcome'])->name('welcome');
-
-
-
-
-
 });
 
 

@@ -11,6 +11,11 @@ class Question extends Model
 
     protected $guarded = [];
 
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

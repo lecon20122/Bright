@@ -13,13 +13,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('site.index');
     }
 
     /**
      * Redirect the authenticated user to welcome view
      *
-     * 
+     *
      */
     public function welcome()
     {
