@@ -27,7 +27,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('categories.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="fas fa-sitemap"></i>
                         <p>
                             Categories
                         </p>
@@ -44,7 +44,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('doctor.index') }}" class="nav-link">
-                        <i class="fas fa-question-circle"></i>
+                        <i class="fas fa-user-md"></i>
                         <p>
                            Doctors
                         </p>

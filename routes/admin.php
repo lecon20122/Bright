@@ -24,6 +24,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('answer', AnswerController::class);
     //doctor
     Route::get('doctors', [doctorController::class, 'index'])->name('doctor.index');
+    Route::post('doctors/{doctor}/approve', [doctorController::class, 'toggleApprovalForDoctor'])->name('doctor.approve');
 });
 
 

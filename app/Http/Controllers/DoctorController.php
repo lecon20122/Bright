@@ -33,9 +33,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = User::doctor()->paginate(15);
         return view('admin.modules.doctor.index', [
-            'doctors' => $doctors,
+            'doctors' => User::doctor()->paginate(15),
         ]);
     }
 
@@ -46,7 +45,6 @@ class DoctorController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -60,10 +58,10 @@ class DoctorController extends Controller
         try {
             $data = $request->all();
             $data['type'] = DataBaseEnum::DOCTOR;
-            $doctor = User::create($data);
+            User::create($data);
             return redirect($this->redirectPath());
         } catch (Exception $exception) {
-            return redirect()->back()->with('error' , $exception->getMessage());
+            return redirect()->back()->with('error', $exception->getMessage());
         }
     }
 
@@ -114,10 +112,17 @@ class DoctorController extends Controller
         //
     }
 
-    public function approveDoctor($id)
+    public function toggleApprovalForDoctor(User $doctor)
     {
-        //find by id
 
-        //update(['is_approved' => $request->is_approved])
+        try {
+            if ($doctor->type == DataBaseEnum::DOCTOR) {
+                $doctor->is_approved = !$doctor->is_approved;
+                $doctor->save();
+            }
+            return Redirect()->back()->with('success', `Doctor $doctor->name is approved successfully`);
+        } catch (Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
     }
 }
