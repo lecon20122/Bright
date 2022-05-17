@@ -149,7 +149,7 @@ h6,
         opacity: 0;
         visibility: hidden;
         transition: .5s;
-        
+
     }
 
     .navbar .nav-item:hover .dropdown-menu {
@@ -189,7 +189,7 @@ h6,
         position: relative;
         min-height: 500px;
     }
-    
+
     .header-carousel .owl-carousel-item img {
         position: absolute;
         width: 100%;
@@ -500,4 +500,11 @@ h6,
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+.background-image-register{
+    /*min-height: 30vh;*/
+    background-image:url("../../images/cover.jpg");
+    background-position: center;
+    background-size: cover;
 }

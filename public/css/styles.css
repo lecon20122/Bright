@@ -48,6 +48,7 @@ footer {
     background-image:url("../images/cover.jpg");
     background-position: center;
     background-size: cover;
+    width: 100px;
 }
 .image-slideshow {
     background-position: center;
