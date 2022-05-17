@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController  ;
+use App\Http\Controllers\doctorController  ;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,6 +22,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('question/{id}/delete', [QuestionController::class, 'destroy'])->name('questions.destroy');
     Route::post('question/{id}/update', [QuestionController::class, 'update'])->name('questions.update');
     Route::resource('answer', AnswerController::class);
+    //doctor
+    Route::get('doctors', [doctorController::class, 'index'])->name('doctor.index');
 });
 
 

@@ -43,6 +43,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('doctor.index') }}" class="nav-link">
+                        <i class="fas fa-question-circle"></i>
+                        <p>
+                           Doctors
+                        </p>
+
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-arrow-right text-danger"></i>
                         <p class="text-danger">
