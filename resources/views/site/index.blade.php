@@ -173,7 +173,7 @@
                             <a class="d-block text-center h3 mt-3 mb-4" href="">Art & Drawing</a>
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt=""
+                                    <img class="rounded-circle flex-shrink-0" src="" alt=""
                                         style="width: 45px; height: 45px;">
                                     <div class="ms-3">
                                         <h6 class="text-primary mb-1">Jhon Doe</h6>

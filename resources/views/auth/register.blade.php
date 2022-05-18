@@ -120,7 +120,7 @@
 
                             <div class="col-md-6 font-color2">
                                 <input id="image" type="file" class="form-control @error('image') is-invalid @enderror"
-                                    name="image" required autocomplete="new-image">
+                                    name="image" autocomplete="new-image">
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">

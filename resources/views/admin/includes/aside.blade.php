@@ -52,6 +52,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('shadowteacher.index') }}" class="nav-link">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <p>
+                            Shadow-Teacher
+                        </p>
+
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-arrow-right text-danger"></i>
                         <p class="text-danger">

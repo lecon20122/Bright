@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -55,7 +56,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['required', 'string'],
             'address' => ['required' , 'string'],
-            'type' => ['required']
+            'type' => ['required'],
+            'image' => ['required','image'],
         ]);
     }
 
@@ -67,6 +69,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $ImagePath = ImageHelper::uploadImage($data['image']);
+        $data['image'] = $ImagePath;
         return User::create($data);
     }
 }

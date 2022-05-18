@@ -1,4 +1,4 @@
-@extends('layouts.welcome')
+@extends('site.layout.basic')
 
 @section('content')
 <style>

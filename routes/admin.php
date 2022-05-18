@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController  ;
 use App\Http\Controllers\doctorController  ;
+use App\Http\Controllers\ShadowTeacherController ;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,7 +26,15 @@ Route::middleware('auth:admin')->group(function () {
     //doctor
     Route::get('doctors', [doctorController::class, 'index'])->name('doctor.index');
     Route::post('doctors/{doctor}/approve', [doctorController::class, 'toggleApprovalForDoctor'])->name('doctor.approve');
+
+    //shadowteacher
+    Route::get('shadowteachers', [shadowteacherController::class, 'index'])->name('shadowteacher.index');
+    Route::post('shadowteachers/{shadowteacher}/approve', [ShadowTeacherController::class, 'toggleApprovalForshadowteacher'])->name('shadow-teacher.approve');
+
+    //Sales
+    // TODO: index , 
 });
+
 
 
 Route::get('login', [AdminAuthController::class, 'login'])->name('admin.login');

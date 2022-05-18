@@ -28,6 +28,7 @@ class User extends Authenticatable
         'is_approved',
         'is_active',
         'type',
+        'image',
     ];
 
     /**
@@ -62,5 +63,10 @@ class User extends Authenticatable
     public function scopePatient($query)
     {
         return $query->where('type', DataBaseEnum::PATIENT);
+    }
+
+    public function scopeShadowTeacher($query)
+    {
+        return $query->where('type', DataBaseEnum::SHADOW_TEACHER);
     }
 }
