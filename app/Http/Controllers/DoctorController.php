@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\DataBaseEnum;
+use App\Models\Category;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Exception;
@@ -114,7 +115,6 @@ class DoctorController extends Controller
 
     public function toggleApprovalForDoctor(User $doctor)
     {
-
         try {
             if ($doctor->type == DataBaseEnum::DOCTOR) {
                 $doctor->is_approved = !$doctor->is_approved;
@@ -124,5 +124,14 @@ class DoctorController extends Controller
         } catch (Exception $exception) {
             return redirect()->back()->with('error', $exception->getMessage());
         }
+    }
+
+    public function doctorRegistrationPage()
+    {
+        $doctor = Category::with('children')->parent()->where('name', DataBaseEnum::DOCTOR)->get();
+
+        return view('auth.join-us', [
+            'categories' => $doctor,
+        ]);
     }
 }

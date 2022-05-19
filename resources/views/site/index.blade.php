@@ -470,7 +470,7 @@
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100 rounded" src="img/appointment.jpg"
+                            <img class="position-absolute w-100 h-100 rounded" src="{{ asset('site/img/appointment.jpg') }}"
                                 style="object-fit: cover;">
                         </div>
                     </div>

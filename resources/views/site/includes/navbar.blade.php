@@ -34,6 +34,7 @@
             </form>
         @endauth
         @guest
+            <a href="{{ route('doctorRegistrationPage') }}" class="rounded-pill px-3 d-none d-lg-block">Join the family
             <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
                     class="fa fa-arrow-right ms-3"></i></a>
             <a href="{{ route('register') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block ms-1">Register<i

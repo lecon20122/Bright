@@ -22,8 +22,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 //Routes Need Authentication
-Route::middleware('auth')->group(function () {
-    Route::get('/welcome', [HomeController::class, 'welcome'])->name('welcome');
-});
+// Route::middleware('auth')->group(function () {
+// });
 
+// Doctor // Shadow teacher registration
+Route::get('join-us', [DoctorController::class, 'doctorRegistrationPage'])->name('doctorRegistrationPage');
 
+//

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\DataBaseEnum;
 use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -55,9 +57,9 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['required', 'string'],
-            'address' => ['required' , 'string'],
-            'type' => ['required'],
-            'image' => ['required','image'],
+            'address' => ['required', 'string'],
+            'type' => ['nullable'],
+            'image' => ['image', 'nullable'],
         ]);
     }
 
@@ -69,8 +71,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $ImagePath = ImageHelper::uploadImage($data['image']);
-        $data['image'] = $ImagePath;
-        return User::create($data);
+        if (isset($data['image'])) {
+            $imageFileName = ImageHelper::uploadImage($data['image']);
+            $data['image'] = $imageFileName;
+        }
+
+        $user = User::create($data);
+
+        if (isset($data['category_id'])) {
+            $user->categories()->attach($data['category_id']);
+        }
+
+        return $user;
     }
 }

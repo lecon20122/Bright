@@ -27,7 +27,8 @@
                             @endif
                         </td>
                         <td>
-                            <form action="{{ route('shadowteacher.approve', ['shadowteacher' => $shadowteacher]) }}" method="post">
+                            <form action="{{ route('shadow-teacher.approve', ['shadowteacher' => $shadowteacher]) }}"
+                                method="post">
                                 @csrf
                                 <button class="btn btn-{{ $shadowteacher->is_approved ? 'danger' : 'success' }}"
                                     type="submit">{{ $shadowteacher->is_approved ? 'Reject' : 'Approve' }}</button>

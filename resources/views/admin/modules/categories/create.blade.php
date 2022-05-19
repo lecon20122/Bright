@@ -12,6 +12,7 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Select Parent Category</label>
                                 <select class="form-control" name="parent_id" id="exampleFormControlSelect1">
+                                    <option value="">No Parent</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach

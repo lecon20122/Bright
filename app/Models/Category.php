@@ -16,14 +16,18 @@ class Category extends Model
         return $this->hasMany(Question::class);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'category_users', 'category_id', 'doctor_id');
+    }
+
     public function scopeParent($query)
     {
         return $query->whereNull('parent_id');
-
     }
 
-    public function scopeChild($query)
+    public function children()
     {
-        return $query->whereNotNull('parent_id');
+        return $this->hasMany(Category::class, 'parent_id', 'id');
     }
 }

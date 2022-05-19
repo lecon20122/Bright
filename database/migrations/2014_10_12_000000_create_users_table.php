@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('type')->default(DataBaseEnum::PATIENT);
             $table->string('password');
+            $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->string('wait_time')->nullable();
             $table->decimal('price')->unsigned()->nullable();

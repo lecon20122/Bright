@@ -114,8 +114,26 @@
                             </div>
                         </div>
 
+                        {{-- select department for doctors only --}}
+                        <div class="row mb-3 font-color2" style="display: none" id="department">
+                            <label class="col-md-4 col-form-label text-md-end" for="exampleFormControlSelect1">Select
+                                Department</label>
+                            <div class="col-md-6 font-color2">
+                                <select class="form-control" name="category_id" id="exampleFormControlSelect1">
+                                    @foreach ($categories as $category)
+                                            @if (count($category->children))
+                                                @include('admin.modules.categories.sub-categories', [
+                                                    'subcategories' => $category->children,
+                                                ])
+                                            @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
                         {{-- toggable --}}
-                        {{-- <div class="row mb-3 font-color2" style="display: none" id="doctor-image">
+                        <div class="row mb-3 font-color2">
                             <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
 
                             <div class="col-md-6 font-color2">
@@ -128,8 +146,29 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div> --}}
+                        </div>
 
+
+                        <div class="row mb-3 ">
+                            <label for="type"
+                                class="col-md-4 col-form-label text-md-end font-color2">{{ __('Choose User Type') }}</label>
+                            <div class="col-md-6 font-color2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="type" id="doctor"
+                                        value="{{ \App\Enums\DataBaseEnum::DOCTOR }}">
+                                    <label class="form-check-label" for="doctor">
+                                        Doctor
+                                    </label>
+                                </div>
+                                <div class="form-check font-color2 ">
+                                    <input class="form-check-input" type="radio" name="type" id="shadow-teacher"
+                                        value="{{ \App\Enums\DataBaseEnum::SHADOW_TEACHER }}">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        SHADOW TEACHER
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row mb-5">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -144,4 +183,22 @@
         <div class="col-md-6 background-image-register">
         </div>
     </div>
+
+@section('page-js-script')
+    <script>
+        $(document).ready(function() {
+
+            $('input[type="radio"]').click(function() {
+                if ($(this).attr("id") == "doctor") {
+                    $("#department").show();
+                }
+                if ($(this).attr("id") == "shadow-teacher") {
+                    $("#department").hide();
+                }
+            });
+
+            $('input[type="radio"]').trigger('click'); // trigger the event
+        });
+    </script>
+@endsection
 @endsection

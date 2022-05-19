@@ -50,6 +50,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_users', 'doctor_id', 'category_id');
+    }
+
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
