@@ -1,5 +1,5 @@
 @extends('site.layout.basic')
-
+<title>Bright</title>
 @section('content')
     <style>
         .font-color {

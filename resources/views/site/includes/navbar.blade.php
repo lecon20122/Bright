@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
     <a href="index.html" class="navbar-brand">
-        <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Bright</h1>
-        {{-- <img width="144" height="48" src="{{ asset('images/lagog ff.jfif') }}" alt=""> --}}
+        {{-- <img class="img-fluid " src="{{ asset('site/img/NADA.png') }}" alt=""> --}}
+        {{-- <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Bright</h1> --}}
+         <img width="144" height="48" src="{{ asset('site/img/NADA.png') }}" alt="">
     </a>
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>

@@ -99,6 +99,7 @@ class ShadowTeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function toggleApprovalForShadowTeacher(User $shadowteacher)
+    
     {
 
         try {
