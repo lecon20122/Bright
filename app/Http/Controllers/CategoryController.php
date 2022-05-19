@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
     public function update($id, Request $request)
     {
-        $category = Category::find($id)->first();
+        $category = Category::find($id);
         $category->update($request->all());
         return redirect()->to('admin/categories')->with('success', 'Category updated Successfully');
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DataBaseEnum;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +15,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('site.index');
+        $backgroundColors =  [
+            DataBaseEnum::ADHD => 'primary',
+            DataBaseEnum::AUTISM => 'warning',
+            DataBaseEnum::DOWN_SYNDROME => 'info',
+            DataBaseEnum::VISUAL_DISABILITY => 'danger',
+        ];
+        $category = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
+        return view('site.index', [
+            'specialties' =>  $category->children,
+            'backgroundColors' => $backgroundColors,
+        ]);
     }
 
     /**

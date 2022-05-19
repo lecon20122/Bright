@@ -134,4 +134,11 @@ class DoctorController extends Controller
             'categories' => $doctor,
         ]);
     }
+
+    public function getDoctorsByCategory(Category $category)
+    {
+        return view('site.modules.doctors.index', [
+            'doctors' => $category->users,
+        ]);
+    }
 }

@@ -10,6 +10,7 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $with = ['users'];
 
     public function questions()
     {
@@ -29,5 +30,10 @@ class Category extends Model
     public function children()
     {
         return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
     }
 }

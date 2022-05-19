@@ -5,8 +5,15 @@ namespace App\Enums;
 class DataBaseEnum
 {
     //UserTypes
-    CONST PATIENT = 'Patient';
-    CONST DOCTOR = 'Doctor';
-    CONST SHADOW_TEACHER = 'Shadow Teacher';
-    CONST ADMIN = 'Admin';
+    const PATIENT = 'Patient';
+    const DOCTOR = 'Doctor';
+    const SHADOW_TEACHER = 'Shadow Teacher';
+    const ADMIN = 'Admin';
+
+    // Specialists
+    const SPECIALTIES = 'Specialties';
+    const ADHD = 'ADHD';
+    const DOWN_SYNDROME = 'Down Syndrome';
+    const AUTISM = 'Autism';
+    const VISUAL_DISABILITY = 'Visual Disability';
 }

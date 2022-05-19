@@ -121,11 +121,11 @@
                             <div class="col-md-6 font-color2">
                                 <select class="form-control" name="category_id" id="exampleFormControlSelect1">
                                     @foreach ($categories as $category)
-                                            @if (count($category->children))
-                                                @include('admin.modules.categories.sub-categories', [
-                                                    'subcategories' => $category->children,
-                                                ])
-                                            @endif
+                                        @if (count($category->children))
+                                            @include('admin.modules.categories.sub-categories', [
+                                                'subcategories' => $category->children,
+                                            ])
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

@@ -28,4 +28,5 @@ Auth::routes();
 // Doctor // Shadow teacher registration
 Route::get('join-us', [DoctorController::class, 'doctorRegistrationPage'])->name('doctorRegistrationPage');
 
-//
+//Specialties
+Route::get('specialists/{category}', [DoctorController::class, 'getDoctorsByCategory'])->name('get-doctor-by-category');

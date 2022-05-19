@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
-    <a href="index.html" class="navbar-brand">
+    <a href="{{ route('home') }}" class="navbar-brand">
         {{-- <img class="img-fluid " src="{{ asset('site/img/NADA.png') }}" alt=""> --}}
         {{-- <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Bright</h1> --}}
-         <img width="144" height="48" src="{{ asset('site/img/NADA.png') }}" alt="">
+        <img width="144" height="48" src="{{ asset('site/img/NADA.png') }}" alt="">
     </a>
     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
             <a href="about.html" class="nav-item nav-link">About Us</a>
             <a href="classes.html" class="nav-item nav-link">Classes</a>
             <div class="nav-item dropdown">
@@ -35,10 +35,11 @@
         @endauth
         @guest
             <a href="{{ route('doctorRegistrationPage') }}" class="rounded-pill px-3 d-none d-lg-block">Join the family
-            <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
-                    class="fa fa-arrow-right ms-3"></i></a>
-            <a href="{{ route('register') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block ms-1">Register<i
-                    class="fa fa-arrow-right ms-3"></i></a>
-        @endguest
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Login<i
+                        class="fa fa-arrow-right ms-3"></i></a>
+                <a href="{{ route('register') }}"
+                    class="btn btn-primary rounded-pill px-3 d-none d-lg-block ms-1">Register<i
+                        class="fa fa-arrow-right ms-3"></i></a>
+            @endguest
     </div>
 </nav>

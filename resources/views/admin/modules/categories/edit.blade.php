@@ -13,16 +13,17 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Select Parent Category</label>
                                     <select class="form-control" name="parent_id" id="exampleFormControlSelect1">
+                                        <option value=""></option>
                                         @foreach ($categories as $parentCategory)
-                                            <option
-                                                value="{{ $parentCategory->id }}">{{ $parentCategory->name }}</option>
+                                            <option value="{{ $parentCategory->id }}">{{ $parentCategory->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Category Name</label>
                                     <input type="name" class="form-control" name="name" id="exampleFormControlInput1"
-                                           placeholder="name@example.com" value="{{ $category->name }}">
+                                        placeholder="name@example.com" value="{{ $category->name }}">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-3">UPDATE</button>
                             </form>
@@ -32,4 +33,4 @@
                 </div>
             </div>
         </div>
-@endsection
+    @endsection

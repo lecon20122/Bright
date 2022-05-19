@@ -50,9 +50,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $with = ['reservationTime'];
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'category_users', 'doctor_id', 'category_id');
+    }
+
+    public function reservations()
+    {
+        return $this->belongsToMany(ReservationTime::class, 'reservations', 'reservation_time_id', 'user_id');
+    }
+
+    public function reservationTime()
+    {
+        return $this->hasMany(ReservationTime::class, 'doctor_id', 'id');
     }
 
     public function setPasswordAttribute($password)
