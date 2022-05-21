@@ -7,29 +7,29 @@
             </div>
             @if ($specialties)
                 <div class="row g-4">
-                    @foreach ($specialties as $specialty)
-                        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="facility-item">
-                                <div class="facility-icon bg-primary">
-                                    <span class="bg-}}"></span>
-                                    <i class="fa fa-bus-alt fa-3x text-primary"></i>
-                                    <span class="bg"></span>
-                                </div>
-                                <div class="facility-text bg-primary">
-                                    <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
-                                    <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd
-                                        vero
-                                        ipsum sit</p>
-                                    <a class="btn btn-info"
-                                        href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
-                                        Doctors</a>
-
+                    @if (count($specialties->children) > 0)
+                        @foreach ($specialties->children as $specialty)
+                            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="facility-item">
+                                    <div class="facility-icon bg-primary">
+                                        <span class="bg-}}"></span>
+                                        <i class="fa fa-bus-alt fa-3x text-primary"></i>
+                                        <span class="bg"></span>
+                                    </div>
+                                    <div class="facility-text bg-primary">
+                                        <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
+                                        <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd
+                                            vero
+                                            ipsum sit</p>
+                                        <a class="btn btn-info"
+                                            href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
+                                            Doctors</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
             @endif
-
         </div>
     </div>

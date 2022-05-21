@@ -10,7 +10,6 @@
             @if ($doctors)
                 @foreach ($doctors as $doctor)
                     <div class="row g-4">
-
                         <div class="card mb-3 mx-auto w-100" style="width: 952px;">
                             <div class="row">
                                 <div class="col-md-4 p-0 m-0" style="height: 400px;">

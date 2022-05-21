@@ -7,6 +7,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\If_;
 
+use function PHPUnit\Framework\isNull;
+
 class HomeController extends Controller
 {
     /**
@@ -28,9 +30,9 @@ class HomeController extends Controller
 
 
 
-        $category = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
+        $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
         return view('site.index', [
-            'specialties' =>  $category->children,
+            'specialties' =>  $specialtiesCategory,
             'backgroundColors' => $backgroundColors,
         ]);
     }
