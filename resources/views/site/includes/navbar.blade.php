@@ -25,9 +25,10 @@
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact Us</a>
         </div>
-        {{-- TODO: Make A dynamic login / register links --}}
         @auth
             <a href="#" class="nav-item nav-link active">{{ auth()->user()->name }}</a>
+            <a href="{{ route('updateUser') }}"
+                class="nav-item nav-link active">{{ auth()->user()->type == App\Enums\DataBaseEnum::PATIENT ? 'Profile' : 'Dashboard' }}</a>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button class="btn btn-primary rounded-pill px-3 d-none d-lg-block ms-1" type="submit">logout</button>

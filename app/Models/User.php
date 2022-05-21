@@ -29,6 +29,8 @@ class User extends Authenticatable
         'is_active',
         'type',
         'image',
+        'price',
+        'wait_time',
     ];
 
     /**

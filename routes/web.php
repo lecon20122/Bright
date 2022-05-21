@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\UpdateUserController;
 use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,9 +22,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
+
+
 //Routes Need Authentication
-// Route::middleware('auth')->group(function () {
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('user-profile', [UpdateUserController::class, 'index'])->name('updateUser');
+    Route::post('user-profile/{user}/update', [UpdateUserController::class, 'update'])->name('postUpdateUser');
+});
 
 // Doctor // Shadow teacher registration
 Route::get('join-us', [DoctorController::class, 'doctorRegistrationPage'])->name('doctorRegistrationPage');

@@ -527,4 +527,7 @@
         </div>
     </div>
     <!-- Testimonial End -->
+
+    @yield('scripts')
+
 @endsection
