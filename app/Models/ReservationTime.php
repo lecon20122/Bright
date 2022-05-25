@@ -8,14 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class ReservationTime extends Model
 {
     use HasFactory;
-    protected $with = ['reservationDay'];
+    protected $with = ['reservationDay' , 'user'];
+
     public function users()
     {
-        return $this->belongsToMany(User::class, 'reservations', 'user_id', 'reservation_time_id')->withPivot('is_approved');
+        return $this->belongsToMany(User::class, 'reservations', 'reservation_time_id', 'user_id')->withPivot('is_approved');
     }
 
     public function reservationDay()
     {
         return $this->belongsTo(ReservationDay::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class , 'doctor_id' , 'id');
     }
 }

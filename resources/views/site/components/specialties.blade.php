@@ -21,7 +21,7 @@
                                         <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd
                                             vero
                                             ipsum sit</p>
-                                        <a class="btn btn-info"
+                                        <a class="btn btn-primary"
                                             href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
                                             Doctors</a>
                                     </div>

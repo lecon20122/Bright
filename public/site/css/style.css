@@ -320,18 +320,18 @@ h6,
     z-index: 2;
 }
 
-.facility-item:hover .facility-icon::before,
+/* .facility-item:hover .facility-icon::before,
 .facility-item:hover .facility-text::before {
     background: transparent;
-}
+} */
 
 .facility-item * {
     transition: .5s;
 }
 
-.facility-item:hover * {
+/* .facility-item:hover * {
     color: #FFFFFF !important;
-}
+} */
 
 
 /*** About ***/

@@ -15,8 +15,9 @@ class UpdateUserController extends Controller
 
     public function update(User $user, Request $request)
     {
-        // dd($request->input());
         $user->update($request->all());
         return redirect()->back()->with('success', 'User updated Successfully');
     }
+
+    
 }

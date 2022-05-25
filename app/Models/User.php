@@ -52,6 +52,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $dates = ['from', 'to'];
+
     protected $with = ['reservationTime'];
     public function categories()
     {
@@ -60,7 +62,7 @@ class User extends Authenticatable
 
     public function reservations()
     {
-        return $this->belongsToMany(ReservationTime::class, 'reservations', 'reservation_time_id', 'user_id');
+        return $this->belongsToMany(ReservationTime::class, 'reservations', 'user_id', 'reservation_time_id')->withPivot('is_approved');
     }
 
     public function reservationTime()

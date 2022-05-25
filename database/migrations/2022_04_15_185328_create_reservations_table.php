@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('reservation_time_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->boolean('is_approved')->default(false);
+            $table->boolean('is_approved')->default(false)->nullable();
             $table->timestamps();
         });
     }

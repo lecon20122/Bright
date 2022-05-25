@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-     <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('site/css/bootstrap-icons-1.8.2/bootstrap-icons.css') }}" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -31,6 +31,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('site/css/style.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 
 <body>
@@ -65,7 +66,7 @@
     <!-- JavaScript Libraries -->
     <script src="{{ asset('site/js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('site/js/bootstrap.bundle.min.js') }}"></script>
-
+    
     <script src="{{ asset('site/lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('site/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('site/lib/waypoints/waypoints.min.js') }}"></script>

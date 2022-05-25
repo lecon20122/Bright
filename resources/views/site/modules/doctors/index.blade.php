@@ -13,12 +13,13 @@
                         <div class="card mb-3 mx-auto w-100" style="width: 952px;">
                             <div class="row">
                                 <div class="col-md-4 p-0 m-0" style="height: 400px;">
-                                    <img src="{{asset('images/users/').'/'.$doctor->image}}" alt="DOCTOR IMAGE"
-                                        class=" rounded-start"/>
+                                    <img src="{{ asset('images/users/') . '/' . $doctor->image }}" width="400px"
+                                        height="400px" alt="DOCTOR IMAGE" class=" rounded-start" />
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><small> {{$doctor->type}} / </small> {{ $doctor->name }}</h5>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title"><small> {{ $doctor->type }} / </small>
+                                            {{ $doctor->name }}</h5>
 
                                         {{-- {{ auth()->user()->type == App\Enums\DataBaseEnum::PATIENT ? 'Profile' : 'Dashboard' }} --}}
                                         <div class="row">
@@ -51,11 +52,22 @@
                                                     id="exampleFormControlSelect1">
                                                     @foreach ($doctor->reservationTime as $appointiment)
                                                         <optgroup label="{{ $appointiment->reservationDay->day }}">
-                                                            <option value="">from {{ $appointiment->from }} to
-                                                                {{ $appointiment->to }}</option>
+                                                            <option value="">from
+                                                                {{ date('g:i A', strtotime($appointiment->from)) }} to
+                                                                {{ date('g:i A', strtotime($appointiment->to)) }}
+                                                            </option>
                                                         </optgroup>
                                                     @endforeach
                                                 </select>
+                                                <form
+                                                    method="POST"
+                                                    action="{{ route('reserve-appointment', ['reservationTime' => $appointiment->id, 'user' => auth()->user()]) }}">
+                                                    @csrf
+                                                    <div class="d-grid gap-2">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            type="button">reserve</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
