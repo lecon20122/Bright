@@ -3,7 +3,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">School Classes</h1>
+                <h1 class="mb-3">DOCTORS</h1>
                 <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
                     eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
@@ -13,12 +13,14 @@
                         <div class="card mb-3 mx-auto w-100" style="width: 952px;">
                             <div class="row">
                                 <div class="col-md-4 p-0 m-0" style="height: 400px;">
-                                    <img src="{{ asset('site/img/team-4.jpg') }}" alt="Trendy Pants and Shoes"
-                                        class=" rounded-start" />
+                                    <img src="{{asset('images/users/').'/'.$doctor->image}}" alt="DOCTOR IMAGE"
+                                        class=" rounded-start"/>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title"><small>Doctor / </small> {{ $doctor->name }}</h5>
+                                        <h5 class="card-title"><small> {{$doctor->type}} / </small> {{ $doctor->name }}</h5>
+
+                                        {{-- {{ auth()->user()->type == App\Enums\DataBaseEnum::PATIENT ? 'Profile' : 'Dashboard' }} --}}
                                         <div class="row">
                                             <div class="col-lg-6">
 

@@ -35,3 +35,7 @@ Route::get('join-us', [DoctorController::class, 'doctorRegistrationPage'])->name
 
 //Specialties
 Route::get('specialists/{category}', [DoctorController::class, 'getDoctorsByCategory'])->name('get-doctor-by-category');
+
+
+
+
