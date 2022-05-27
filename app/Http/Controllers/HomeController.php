@@ -24,10 +24,17 @@ class HomeController extends Controller
             DataBaseEnum::DOWN_SYNDROME => 'info',
             DataBaseEnum::VISUAL_DISABILITY => 'danger',
         ];
+        $headerImage =[
+            DataBaseEnum::ADHD => 'adhd logo.jpg' ,
+            DataBaseEnum::AUTISM => 'autism.jpg',
+            DataBaseEnum::DOWN_SYNDROME => 'down.jpg',
+            DataBaseEnum::VISUAL_DISABILITY => 'blind logo.jpg',
+        ];
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
         return view('site.index', [
             'specialties' =>  $specialtiesCategory,
             'backgroundColors' => $backgroundColors,
+            'headerImage' => $headerImage
         ]);
     }
 
