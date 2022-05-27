@@ -7,8 +7,8 @@
                 <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
                     eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
-            @if ($doctors)
-                @foreach ($doctors as $doctor)
+            @if ($CategoryUsers)
+                @foreach ($CategoryUsers as $doctor)
                     <div class="row g-4">
                         <div class="card mb-3 mx-auto w-100" style="width: 952px;">
                             <div class="row">
@@ -20,8 +20,6 @@
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title"><small> {{ $doctor->type }} / </small>
                                             {{ $doctor->name }}</h5>
-
-                                        {{-- {{ auth()->user()->type == App\Enums\DataBaseEnum::PATIENT ? 'Profile' : 'Dashboard' }} --}}
                                         <div class="row">
                                             <div class="col-lg-6">
 
@@ -46,11 +44,12 @@
                                                 </h4>
 
                                             </div>
+                                            @if ($doctor->reservationTimes)
                                             <div class="col-lg-6">
                                                 <label for="">Doctor Schedule</label>
                                                 <select class="form-control" name="category_id"
                                                     id="exampleFormControlSelect1">
-                                                    @foreach ($doctor->reservationTime as $appointiment)
+                                                    @foreach ($doctor->reservationTimes as $appointiment)
                                                         <optgroup label="{{ $appointiment->reservationDay->day }}">
                                                             <option value="">from
                                                                 {{ date('g:i A', strtotime($appointiment->from)) }} to
@@ -59,16 +58,18 @@
                                                         </optgroup>
                                                     @endforeach
                                                 </select>
-                                                <form
-                                                    method="POST"
-                                                    action="{{ route('reserve-appointment', ['reservationTime' => $appointiment->id, 'user' => auth()->user()]) }}">
-                                                    @csrf
-                                                    <div class="d-grid gap-2">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            type="button">reserve</button>
-                                                    </div>
-                                                </form>
+                                                @auth
+                                                    <form method="POST"
+                                                        action="{{ route('reserve-appointment', ['reservationTime' => $appointiment->id, 'user' => auth()->user()]) }}">
+                                                        @csrf
+                                                        <div class="d-grid gap-2">
+                                                            <button type="submit" class="btn btn-primary"
+                                                                type="button">reserve</button>
+                                                        </div>
+                                                    </form>
+                                                @endauth
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

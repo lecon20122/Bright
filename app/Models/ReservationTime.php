@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReservationTime extends Model
 {
     use HasFactory;
-    protected $with = ['reservationDay' , 'user'];
+    protected $with = ['reservationDay'];
 
     public function users()
     {

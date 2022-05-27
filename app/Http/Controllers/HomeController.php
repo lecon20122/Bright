@@ -18,18 +18,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
-
         $backgroundColors =  [
             DataBaseEnum::ADHD => 'primary',
             DataBaseEnum::AUTISM => 'warning',
             DataBaseEnum::DOWN_SYNDROME => 'info',
             DataBaseEnum::VISUAL_DISABILITY => 'danger',
         ];
-
-
-
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
         return view('site.index', [
             'specialties' =>  $specialtiesCategory,

@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     protected $dates = ['from', 'to'];
 
-    protected $with = ['reservationTime'];
+    protected $with = ['reservationTimes'];
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'category_users', 'doctor_id', 'category_id');
@@ -65,7 +65,7 @@ class User extends Authenticatable
         return $this->belongsToMany(ReservationTime::class, 'reservations', 'user_id', 'reservation_time_id')->withPivot('is_approved');
     }
 
-    public function reservationTime()
+    public function reservationTimes()
     {
         return $this->hasMany(ReservationTime::class, 'doctor_id', 'id');
     }

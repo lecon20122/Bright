@@ -138,7 +138,7 @@ class DoctorController extends Controller
     public function getDoctorsByCategory(Category $category)
     {
         return view('site.modules.doctors.index', [
-            'doctors' => $category->users,
+            'CategoryUsers' => $category->users,
         ]);
     }
 }
