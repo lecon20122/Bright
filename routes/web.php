@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\UpdateUserController;
 use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('user-profile', [UpdateUserController::class, 'index'])->name('updateUser');
     Route::post('user-profile/{user}/update', [UpdateUserController::class, 'update'])->name('postUpdateUser');
     Route::get('user-profile/appointments', [UserSettingController::class, 'index'])->name('appointment');
+    Route::get('answers/{category}/{question}', [AnswerController::class, 'storeAnswers'])->name('store-test-question');
 });
 
 // Doctor // Shadow teacher registration
@@ -37,5 +39,7 @@ Route::get('join-us', [DoctorController::class, 'doctorRegistrationPage'])->name
 
 //Specialties
 Route::get('specialists/{category}', [DoctorController::class, 'getDoctorsByCategory'])->name('get-doctor-by-category');
+Route::get('clinic/{category}', [DoctorController::class, 'takeClinicTest'])->name('clinic-test');
 
 Route::post('reserve/{reservationTime}/{user}', [ReservationController::class, 'reserveAppointment'])->name('reserve-appointment');
+Route::get('reservations', [ReservationController::class, 'getReservations'])->name('reservations');

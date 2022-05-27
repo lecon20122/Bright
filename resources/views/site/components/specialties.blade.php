@@ -13,37 +13,33 @@
                                 <div class="facility-item">
                                     {{-- <div   class=" facility-icon bg-primary"> --}}
                                     <div class=" bg-primary">
-                                        <img src="{{ asset('images/'.$headerImage[$specialty->name])}}" alt="">
+                                        <img src="{{ asset('images/' . $headerImage[$specialty->name]) }}" alt="">
                                         <span class="bg-}}"></span>
                                         <i class="fa fa-bus-alt fa-3x text-primary"></i>
                                         <span class="bg"></span>
                                     </div>
 
-                                        <div class="facility-text bg-primary">
-                                            <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
-                                            <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem
-                                                kasd
-                                                vero
-                                                ipsum sit</p>
-                                                @if ($specialty->name == 'ADHD'){
+                                    <div class="facility-text bg-primary">
+                                        <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
+                                        <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem
+                                            kasd
+                                            <a href="">read more</a>
+                                            ipsum sit</p>
+                                        {{-- @if ($specialty->name == App\Enums\DataBaseEnum::ADHD)
                                             <a class="btn btn-primary"
                                                 href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
-                                                Doctors&Shadow Teacher
+                                                Doctors / Shadow Teacher
                                             </a>
-                                        }
-                                            @else{
-                                                <a class="btn btn-primary"
+                                        @else --}}
+                                            <a class="btn btn-primary"
                                                 href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
-                                                Doctors
+                                                Specialists
                                             </a>
-                                              }
-
-                                            @endif
-
-
-                                        </div>
-
-
+                                            <a class="btn btn-primary mt-1"
+                                                href="{{ route('clinic-test', ['category' => $specialty]) }}">take Test
+                                            </a>
+                                        {{-- @endif --}}
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

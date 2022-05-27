@@ -141,4 +141,12 @@ class DoctorController extends Controller
             'CategoryUsers' => $category->users,
         ]);
     }
+
+    public function takeClinicTest(Category $category)
+    {
+
+        return view('site.modules.questions.index', [
+            'category' => $category
+        ]);
+    }
 }

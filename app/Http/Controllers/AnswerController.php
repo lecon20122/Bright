@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Category;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class AnswerController extends Controller
@@ -29,7 +31,7 @@ class AnswerController extends Controller
     {
         $Answers = Answer::all();
         return view('admin.modules.answer.create', [
-            'answer'=> $Answers,
+            'answer' => $Answers,
         ]);
     }
 
@@ -52,8 +54,8 @@ class AnswerController extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show($id)
-   // {
-        //
+    // {
+    //
     //}
 
     /**
@@ -64,7 +66,7 @@ class AnswerController extends Controller
      */
     public function edit(Answer $Answers)
     {
-        $Answers = Answer::all( );
+        $Answers = Answer::all();
         return view('admin.modules.answer.edit', [
             'Answer' => $Answers,
 
@@ -79,7 +81,7 @@ class AnswerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-        public function update($id, Request $request)
+    public function update($id, Request $request)
     {
         $Answers = Answer::find($id)->first();
         $Answers->update($request->all());
@@ -96,5 +98,15 @@ class AnswerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeAnswers(Request $request, Category $category, Question $question)
+    {
+        foreach ($request->answers as $answer) {
+            $question->answers()->create([
+                'answer' => $answer,
+                'user_id' => auth()->user()->id,
+            ]);
+        }
     }
 }

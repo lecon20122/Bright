@@ -10,6 +10,19 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    public function getReservations()
+    {
+        $reservations = auth()->user()->reservations()->get();
+        return view(
+            'site.modules.user.appointments',
+            [
+                'reservations' => $reservations
+            ]
+        );
+    }
+
+
+
     public function reserveAppointment(ReservationTime $reservationTime, User $user)
     {
         try {
