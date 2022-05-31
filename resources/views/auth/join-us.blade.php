@@ -167,6 +167,13 @@
                                         SHADOW TEACHER
                                     </label>
                                 </div>
+                                <div class="form-check font-color2 ">
+                                    <input class="form-check-input" type="radio" name="type" id="shadow-teacher"
+                                        value="{{ \App\Enums\DataBaseEnum::CENTER }}">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Center
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="row mb-5">

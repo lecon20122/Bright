@@ -24,14 +24,17 @@
                                         <p class="mb-0"> {{ $specialty->description }}
                                             <a href="">read more</a>
                                         </p>
-
-                                        @if ($specialty->testScores->count() > 0)
-                                            <div class="alert alert-info p-0" role="alert">
-                                                your test score is
-                                                {{-- {{ auth()->user()->testScores()->where('category_id', $specialty->id)->first()->total_score }} --}}
-                                                {{ $specialty->testScores()->where('user_id', auth()->user()->id)->first()->total_score }}
-                                            </div>
-                                        @endif
+                                        @auth
+                                            @if ($specialty->testScores->isNotEmpty())
+                                                @if ($specialty->testScores()->where('user_id', auth()->user()->id)->first())
+                                                    <div class="alert alert-info p-0" role="alert">
+                                                        your test score is
+                                                        {{-- {{ auth()->user()->testScores()->where('category_id', $specialty->id)->first()->total_score }} --}}
+                                                        {{ $specialty->testScores()->where('user_id', auth()->user()->id)->first()->total_score ?? '(score not found)' }}
+                                                    </div>
+                                                @endif
+                                            @endif
+                                        @endauth
                                         <a class="btn btn-primary"
                                             href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
                                             Specialists
