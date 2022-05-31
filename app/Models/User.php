@@ -89,4 +89,9 @@ class User extends Authenticatable
     {
         return $query->where('type', DataBaseEnum::SHADOW_TEACHER);
     }
+
+    public function testScores()
+    {
+        return $this->hasMany(TestScore::class);
+    }
 }

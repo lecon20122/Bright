@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-    protected $with = ['users' , 'questions'];
+    protected $with = ['users' , 'questions','testScores'];
 
     public function questions()
     {
@@ -36,5 +36,10 @@ class Category extends Model
     public function getRouteKeyName()
     {
         return 'name';
+    }
+
+    public function testScores()
+    {
+        return $this->hasMany(TestScore::class);
     }
 }

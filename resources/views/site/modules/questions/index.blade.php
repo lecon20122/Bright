@@ -10,8 +10,7 @@
                         <h3 class="text-primary d-inline-block">Q. </h3>
                         <h4 class="d-inline-block">{{ $question->title }}</h4>
                     </div>
-                    <select name="answers[]" class="form-select w-25 my-3" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                    <select name="answers[{{ $question->title }}]" class="form-select w-25 my-3" aria-label="Default select example">
                         <option value="1">yes</option>
                         <option value="0">no</option>
                     </select>

@@ -102,29 +102,58 @@ class AnswerController extends Controller
         //
     }
 
-    public function storeAnswers(Request $request, Category $category, Question $question)
+    public function storeAnswers(Request $request, Category $category)
     {
+        $user = auth()->user();
+        $totalAnswerYes = 0;
+        $totalAnswerNo = 0;
+        $totalQuestions = count($request->answers);
 
-        foreach ($request->answers as $answer) {
-            $question->answers()->create([
-                'answer' => $answer,
-                'user_id' => auth()->user()->id,
+        foreach ($request->answers as $question_title => $answer) {
 
-            ]);
+            $question = Question::with('answers')->where('title', $question_title)->first();
 
-            $counter=0;
-            $counter++;
-            if ($answer='yes')
+            $question->answers()->updateOrCreate(
+                [
+                    'question_title' => $question_title,
+                    'user_id' => $user->id,
+                    'question_id' => $question->id,
+                ],
+                [
+                    'answer' => $answer,
+                ]
+            );
 
-            {
-                $counter>=5;
-              return Redirect()->back()->with('success', 'Your score is good'.$counter);
-            }
-            else{
-                $counter<4;
-                return Redirect()->back()->with('success', 'Your score is '.$counter);
+            if ($answer) {
+                $totalAnswerYes++;
+            } else {
+                $totalAnswerNo++;
             }
         }
 
+        $this->updateOrCreateTestScore($user, $category, $totalAnswerYes, $totalAnswerNo, $totalQuestions);
+        
+        return redirect()->back()->with('success' , 'your answers submitted successfully');
+    }
+
+    public function calculatePercentage($totalAnswerYes, $totalQuestions)
+    {
+        return number_format($totalAnswerYes / $totalQuestions * 100, 0) . '%';
+    }
+
+    public function updateOrCreateTestScore($user, $category, $totalAnswerYes, $totalAnswerNo, $totalQuestions)
+    {
+        $user->testScores()->updateOrCreate(
+            [
+                'category_id' => $category->id,
+                'user_id' => $user->id,
+            ],
+            [
+                'total_yes_answer' => $totalAnswerYes,
+                'total_no_answer' => $totalAnswerNo,
+                'total_questions' => $totalQuestions,
+                'total_score' => $this->calculatePercentage($totalAnswerYes, $totalQuestions),
+            ]
+        );
     }
 }

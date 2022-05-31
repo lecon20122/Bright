@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('user-profile', [UpdateUserController::class, 'index'])->name('updateUser');
     Route::post('user-profile/{user}/update', [UpdateUserController::class, 'update'])->name('postUpdateUser');
     Route::get('user-profile/appointments', [UserSettingController::class, 'index'])->name('appointment');
-    Route::get('answers/{category}/{question}', [AnswerController::class, 'storeAnswers'])->name('store-test-question');
+    Route::get('answers/{category}', [AnswerController::class, 'storeAnswers'])->name('store-test-question');
 });
 
 // Doctor // Shadow teacher registration

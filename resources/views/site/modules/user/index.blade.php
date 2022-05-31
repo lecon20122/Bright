@@ -35,7 +35,7 @@
                                             placeholder="Email" class="form-control here" type="text">
                                     </div>
                                 </div>
-                                @if ($user->type !== App\Enums\DataBaseEnum::Patient)
+                                @if (auth()->user()->type != App\Enums\DataBaseEnum::PATIENT)
                                     <div class="form-group row my-2">
                                         <label for="email" class="col-4 col-form-label">Description</label>
                                         <div class="col-8">
@@ -44,33 +44,33 @@
                                                 name="description" placeholder="description" class="form-control here"
                                                 type="text">
                                         </div>
+                                    </div>
                                 @endif
+                                <div class="form-group row my-2">
+                                    <label for="email" class="col-4 col-form-label">Price</label>
+                                    <div class="col-8">
+                                        <input id="email" value="{{ old('price', auth()->user()->price) }}" name="price"
+                                            placeholder="price" class="form-control here" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row my-2">
+                                    <label for="email" class="col-4 col-form-label">Wait time</label>
+                                    <div class="col-8">
+                                        <input id="email" value="{{ old('wait_time', auth()->user()->wait_time) }}"
+                                            name="wait_time" placeholder="wait time" class="form-control here" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row my-2">
+                                    <div class="offset-4 col-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Update My
+                                            Profile</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group row my-2">
-                            <label for="email" class="col-4 col-form-label">Price</label>
-                            <div class="col-8">
-                                <input id="email" value="{{ old('price', auth()->user()->price) }}" name="price"
-                                    placeholder="price" class="form-control here" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <label for="email" class="col-4 col-form-label">Wait time</label>
-                            <div class="col-8">
-                                <input id="email" value="{{ old('wait_time', auth()->user()->wait_time) }}"
-                                    name="wait_time" placeholder="wait time" class="form-control here" type="text">
-                            </div>
-                        </div>
-                        <div class="form-group row my-2">
-                            <div class="offset-4 col-8">
-                                <button name="submit" type="submit" class="btn btn-primary">Update My
-                                    Profile</button>
-                            </div>
-                        </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

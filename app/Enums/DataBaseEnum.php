@@ -16,4 +16,7 @@ class DataBaseEnum
     const DOWN_SYNDROME = 'Down Syndrome';
     const AUTISM = 'Autism';
     const VISUAL_DISABILITY = 'Visual Disability';
+
+    const ANSWER_YES = 'yes';
+    const ANSWER_NO = 'yes';
 }
