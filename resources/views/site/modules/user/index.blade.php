@@ -35,39 +35,42 @@
                                             placeholder="Email" class="form-control here" type="text">
                                     </div>
                                 </div>
-                                <div class="form-group row my-2">
-                                    <label for="email" class="col-4 col-form-label">Description</label>
-                                    <div class="col-8">
-                                        <input id="email" value="{{ old('describtion', auth()->user()->description) }}"
-                                            name="description" placeholder="description" class="form-control here"
-                                            type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group row my-2">
-                                    <label for="email" class="col-4 col-form-label">Price</label>
-                                    <div class="col-8">
-                                        <input id="email" value="{{ old('price', auth()->user()->price) }}" name="price"
-                                            placeholder="price" class="form-control here" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group row my-2">
-                                    <label for="email" class="col-4 col-form-label">Wait time</label>
-                                    <div class="col-8">
-                                        <input id="email" value="{{ old('wait_time', auth()->user()->wait_time) }}"
-                                            name="wait_time" placeholder="wait time" class="form-control here" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group row my-2">
-                                    <div class="offset-4 col-8">
-                                        <button name="submit" type="submit" class="btn btn-primary">Update My
-                                            Profile</button>
-                                    </div>
-                                </div>
-                            </form>
+                                @if ($user->type !== App\Enums\DataBaseEnum::Patient)
+                                    <div class="form-group row my-2">
+                                        <label for="email" class="col-4 col-form-label">Description</label>
+                                        <div class="col-8">
+                                            <input id="email"
+                                                value="{{ old('describtion', auth()->user()->description) }}"
+                                                name="description" placeholder="description" class="form-control here"
+                                                type="text">
+                                        </div>
+                                @endif
                         </div>
+                        <div class="form-group row my-2">
+                            <label for="email" class="col-4 col-form-label">Price</label>
+                            <div class="col-8">
+                                <input id="email" value="{{ old('price', auth()->user()->price) }}" name="price"
+                                    placeholder="price" class="form-control here" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <label for="email" class="col-4 col-form-label">Wait time</label>
+                            <div class="col-8">
+                                <input id="email" value="{{ old('wait_time', auth()->user()->wait_time) }}"
+                                    name="wait_time" placeholder="wait time" class="form-control here" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group row my-2">
+                            <div class="offset-4 col-8">
+                                <button name="submit" type="submit" class="btn btn-primary">Update My
+                                    Profile</button>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

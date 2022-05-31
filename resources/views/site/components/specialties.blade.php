@@ -21,10 +21,9 @@
 
                                     <div class="facility-text bg-primary">
                                         <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
-                                        <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem
-                                            kasd
-                                            <a href="">read more</a>
-                                            ipsum sit</p>
+                                        <p class="mb-0"> {{$description}}
+                                            <a href="">read more</a> </p>
+
                                         {{-- @if ($specialty->name == App\Enums\DataBaseEnum::ADHD)
                                             <a class="btn btn-primary"
                                                 href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See

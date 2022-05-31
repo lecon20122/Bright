@@ -20,4 +20,5 @@
         </form>
         @endif
     </div>
+    @include('includes.success-alert')
 @endsection

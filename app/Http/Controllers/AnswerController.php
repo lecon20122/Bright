@@ -6,6 +6,8 @@ use App\Models\Answer;
 use App\Models\Category;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\If_;
+
 
 class AnswerController extends Controller
 {
@@ -102,11 +104,27 @@ class AnswerController extends Controller
 
     public function storeAnswers(Request $request, Category $category, Question $question)
     {
+
         foreach ($request->answers as $answer) {
             $question->answers()->create([
                 'answer' => $answer,
                 'user_id' => auth()->user()->id,
+
             ]);
+
+            $counter=0;
+            $counter++;
+            if ($answer='yes')
+
+            {
+                $counter>=5;
+              return Redirect()->back()->with('success', 'Your score is good'.$counter);
+            }
+            else{
+                $counter<4;
+                return Redirect()->back()->with('success', 'Your score is '.$counter);
+            }
         }
+
     }
 }
