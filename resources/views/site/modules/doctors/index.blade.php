@@ -7,6 +7,8 @@
                 <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
                     eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
+            @include('includes.success-alert')
+            @include('includes.error-alert')
             @if ($CategoryUsers)
                 @foreach ($CategoryUsers as $doctor)
                     <div class="row g-4">
@@ -60,7 +62,7 @@
                                                 </select>
                                                 @auth
                                                     <form method="POST"
-                                                        action="{{ route('reserve-appointment', ['reservationTime' => $appointiment->id, 'user' => auth()->user()]) }}">
+                                                        action="{{ route('reserve-appointment', ['reservationTime' => $appointiment->id, 'user' => auth()->user() , 'doctor' => $doctor]) }}">
                                                         @csrf
                                                         <div class="d-grid gap-2">
                                                             <button type="submit" class="btn btn-primary"

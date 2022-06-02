@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-    protected $with = ['users' , 'questions','testScores'];
+    protected $with = ['users', 'questions', 'testScores'];
 
     public function questions()
     {
@@ -20,7 +20,8 @@ class Category extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'category_users', 'category_id', 'doctor_id');
+        return $this->belongsToMany(User::class, 'category_users', 'category_id', 'doctor_id')
+            ->where([['is_approved', true], ['is_active', true]]);
     }
 
     public function scopeParent($query)

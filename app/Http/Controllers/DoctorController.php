@@ -144,7 +144,7 @@ class DoctorController extends Controller
 
     public function takeClinicTest(Category $category)
     {
-        
+
         return view('site.modules.questions.index', [
             'category' => $category
         ]);

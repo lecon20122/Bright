@@ -22,7 +22,7 @@
 
                                     <div class="facility-text bg-primary">
                                         <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
-                                        <p class="mb-0 parg"> {{$specialty->descriptionParagraph}}</p>
+                                        <p class="mb-0 parg"> {{$specialty->description}}</p>
                                             <a href="">read more</a>
 
                                         @auth

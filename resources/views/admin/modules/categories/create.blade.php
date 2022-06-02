@@ -22,6 +22,10 @@
                                 <label for="exampleFormControlInput1">Category Name</label>
                                 <input type="name" class="form-control" name="name" id="exampleFormControlInput1" placeholder="name@example.com">
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Description</label>
+                                <input type="name" class="form-control" name="description" id="exampleFormControlInput1">
+                            </div>
                             <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </form>
                     </div>

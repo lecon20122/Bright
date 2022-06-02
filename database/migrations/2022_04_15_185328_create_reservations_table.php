@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('reservation_time_id')->constrained();
+            $table->unsignedBigInteger('doctor_id')->references('id')->on('users');
             $table->foreignId('user_id')->constrained();
+            $table->unsignedDecimal('price');
             $table->boolean('is_approved')->default(false)->nullable();
             $table->timestamps();
         });

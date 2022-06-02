@@ -55,6 +55,7 @@ class User extends Authenticatable
     protected $dates = ['from', 'to'];
 
     protected $with = ['reservationTimes'];
+
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'category_users', 'doctor_id', 'category_id');
@@ -62,7 +63,13 @@ class User extends Authenticatable
 
     public function reservations()
     {
-        return $this->belongsToMany(ReservationTime::class, 'reservations', 'user_id', 'reservation_time_id')->withPivot('is_approved');
+        return $this->belongsToMany(ReservationTime::class, 'reservations', 'user_id', 'reservation_time_id')
+            ->withPivot('is_approved', 'doctor_id', 'price');
+    }
+
+    public function doctorReservations()
+    {
+        return $this->hasMany(Reservation::class, 'doctor_id', 'id');
     }
 
     public function reservationTimes()
@@ -88,6 +95,11 @@ class User extends Authenticatable
     public function scopeShadowTeacher($query)
     {
         return $query->where('type', DataBaseEnum::SHADOW_TEACHER);
+    }
+
+    public function scopeIsApproved($query)
+    {
+        return $query->where('is_approved', true);
     }
 
     public function testScores()

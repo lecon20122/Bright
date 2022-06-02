@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>Your Dashboard</h4>
+                            <h4>Your Dashboard |  {{  auth()->user()->type }} </h4>
                             <hr>
                         </div>
                     </div>

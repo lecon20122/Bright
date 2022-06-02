@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReservationTime extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     protected $with = ['reservationDay'];
 
     public function users()
