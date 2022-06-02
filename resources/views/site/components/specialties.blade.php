@@ -29,9 +29,10 @@
                                             @if ($specialty->testScores->isNotEmpty())
                                                 @if ($specialty->testScores()->where('user_id', auth()->user()->id)->first())
                                                     <div class="alert alert-info p-0" role="alert">
-                                                        your test score is
+                                                        we reccomend
                                                         {{-- {{ auth()->user()->testScores()->where('category_id', $specialty->id)->first()->total_score }} --}}
                                                         {{ $specialty->testScores()->where('user_id', auth()->user()->id)->first()->total_score ?? '(score not found)' }}
+                                                        to see doctor
                                                     </div>
                                                 @endif
                                             @endif
