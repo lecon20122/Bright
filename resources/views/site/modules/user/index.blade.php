@@ -21,6 +21,16 @@
                                             placeholder="Username" class="form-control here" type="text">
                                     </div>
                                 </div>
+                        <div class="col-md-12">
+                            <form method="POST" action="{{ route('postUpdateUser', ['user' => auth()->user()]) }}">
+                                @csrf
+                                <div class="form-group row my-2">
+                                    <label for="username" class="col-4 col-form-label">Address</label>
+                                    <div class="col-8">
+                                        <input id="username" value="{{ old('name', auth()->user()->address) }}" name="Address"
+                                            placeholder="Username" class="form-control here" type="text">
+                                    </div>
+                                </div>
                                 <div class="form-group row my-2">
                                     <label for="email" class="col-4 col-form-label">Email</label>
                                     <div class="col-8">
@@ -35,6 +45,7 @@
                                             placeholder="Email" class="form-control here" type="text">
                                     </div>
                                 </div>
+
                                 @if (auth()->user()->type != App\Enums\DataBaseEnum::PATIENT)
                                     <div class="form-group row my-2">
                                         <label for="email" class="col-4 col-form-label">Description</label>
@@ -46,6 +57,18 @@
                                         </div>
                                     </div>
                                 @endif
+                                {{-- @if (auth()->user()->type != App\Enums\DataBaseEnum::PATIENT)
+                                    <div class="form-group row my-2">
+                                        <label for="reservation_time_id" class="col-4 col-form-label">Scheduling</label>
+                                        <div class="col-8">
+                                            <input id="reservation_time_id"
+                                                value="{{ old('reservation_time_id', auth()->user()->reservation_time_id) }}"
+                                                name="day" placeholder="Day" class="form-control here"
+                                                type="text">
+                                        </div>
+                                    </div>
+                                @endif --}}
+                                @if (auth()->user()->type != App\Enums\DataBaseEnum::PATIENT)
                                 <div class="form-group row my-2">
                                     <label for="email" class="col-4 col-form-label">Price</label>
                                     <div class="col-8">
@@ -53,6 +76,8 @@
                                             placeholder="price" class="form-control here" type="text">
                                     </div>
                                 </div>
+                                @endif
+                                @if (auth()->user()->type != App\Enums\DataBaseEnum::PATIENT)
                                 <div class="form-group row my-2">
                                     <label for="email" class="col-4 col-form-label">Wait time</label>
                                     <div class="col-8">
@@ -66,6 +91,7 @@
                                             Profile</button>
                                     </div>
                                 </div>
+                                @endif
                             </form>
                         </div>
                     </div>

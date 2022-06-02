@@ -1,3 +1,4 @@
+
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -21,9 +22,9 @@
 
                                     <div class="facility-text bg-primary">
                                         <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
-                                        <p class="mb-0"> {{ $specialty->description }}
+                                        <p class="mb-0 parg"> {{$specialty->descriptionParagraph}}</p>
                                             <a href="">read more</a>
-                                        </p>
+
                                         @auth
                                             @if ($specialty->testScores->isNotEmpty())
                                                 @if ($specialty->testScores()->where('user_id', auth()->user()->id)->first())

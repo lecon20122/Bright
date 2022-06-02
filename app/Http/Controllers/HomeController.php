@@ -30,18 +30,20 @@ class HomeController extends Controller
             DataBaseEnum::DOWN_SYNDROME => 'down.jpg',
             DataBaseEnum::VISUAL_DISABILITY => 'blind logo.jpg',
         ];
-        $description =[
-            DataBaseEnum::ADHD => ' اضطراب فرط الحركة صعوبة الانتباه  '  ,
-            DataBaseEnum::AUTISM => 'التوحد',
-            DataBaseEnum::DOWN_SYNDROME => 'متلازمة داون',
-            DataBaseEnum::VISUAL_DISABILITY => ' اعاقة بصرية',
+        $descriptionParagraph =[
+            DataBaseEnum::ADHD => 'مصر',
+            DataBaseEnum::AUTISM =>'سودان' ,
+            DataBaseEnum::DOWN_SYNDROME => 'افريقيا',
+            DataBaseEnum::VISUAL_DISABILITY =>'يونانان' ,
         ];
+
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
         return view('site.index', [
             'specialties' =>  $specialtiesCategory,
             'backgroundColors' => $backgroundColors,
             'headerImage' => $headerImage,
-            ' description' =>  $description
+            'descriptionParagraph'=> $descriptionParagraph
+
         ]);
     }
 
