@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->mediumText('description')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
-         
             $table->softDeletes();
             $table->timestamps();
 

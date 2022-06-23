@@ -32,10 +32,13 @@ class HomeController extends Controller
         ];
 
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
+        $FeaturedCategoryDoctors = Category::where('name', DataBaseEnum::FEATURED)->first();
+        // dd($FeaturedCategoryDoctors);
         return view('site.index', [
             'specialties' =>  $specialtiesCategory,
             'backgroundColors' => $backgroundColors,
             'headerImage' => $headerImage,
+            'FeaturedCategoryDoctors' => $FeaturedCategoryDoctors,
         ]);
     }
 

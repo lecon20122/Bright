@@ -26,14 +26,12 @@ Route::middleware('auth:admin')->group(function () {
     //doctor
     Route::get('doctors', [doctorController::class, 'index'])->name('doctor.index');
     Route::post('doctors/{doctor}/approve', [doctorController::class, 'toggleApprovalForDoctor'])->name('doctor.approve');
-    Route::post('doctors/{doctor}/sponsor', [doctorController::class, 'togglesponsorForDoctor'])->name('doctor.sponsor');
+    Route::post('doctors/{doctor}', [doctorController::class, 'attachDoctorToCategory'])->name('doctor.attach');
+    Route::get('doctors/{doctor}/attach', [doctorController::class, 'attachDoctorToCategoryView'])->name('doctor.attach.view');
 
-    //shadowteacher
+    //shadow teacher
     Route::get('shadowteachers', [shadowteacherController::class, 'index'])->name('shadowteacher.index');
     Route::post('shadowteachers/{shadowteacher}/approve', [ShadowTeacherController::class, 'toggleApprovalForshadowteacher'])->name('shadow-teacher.approve');
-
-    //Sales
-    // TODO: index ,
 });
 
 

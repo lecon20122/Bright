@@ -29,7 +29,6 @@ return new class extends Migration
             $table->boolean('is_approved')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('sponsor')->default(false)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

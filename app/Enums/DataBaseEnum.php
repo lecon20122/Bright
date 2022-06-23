@@ -9,6 +9,7 @@ class DataBaseEnum
     const DOCTOR = 'Doctor';
     const SHADOW_TEACHER = 'Shadow Teacher';
     const ADMIN = 'Admin';
+    const FEATURED = 'Featured';
     const CENTER = 'Center';
 
     // Specialists

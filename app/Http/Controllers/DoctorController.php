@@ -36,6 +36,7 @@ class DoctorController extends Controller
     {
         return view('admin.modules.doctor.index', [
             'doctors' => User::doctor()->paginate(15),
+            'categories' => Category::all(),
         ]);
     }
 
@@ -160,6 +161,25 @@ class DoctorController extends Controller
 
         return view('site.modules.questions.index', [
             'category' => $category
+        ]);
+    }
+
+    public function attachDoctorToCategory(Request $request , User $doctor)
+    {
+        try {
+            $category = Category::find($request->category_id);
+            $doctor->categories()->attach($category);
+            return Redirect()->back()->with('success', `Doctor $doctor->name is attached to $category->name successfully`);
+        } catch (Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
+    }
+
+    public function attachDoctorToCategoryView(User $doctor)
+    {
+        return view('admin.modules.doctor.edit', [
+            'doctor' => $doctor,
+            'categories' => Category::all(),
         ]);
     }
 }

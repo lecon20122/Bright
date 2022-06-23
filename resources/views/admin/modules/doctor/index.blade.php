@@ -3,15 +3,15 @@
     <div class="container-fluid">
         @include('includes.success-alert')
         @include('includes.error-alert')
-        {{-- @include('includes.create-button' , ['route' => route('categories.create')]) --}}
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table text-center">
+            <thead class="thead-dark ">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Status</th>
                     <th scope="col">Controls</th>
-                    <th scope="col">Sponsor</th>
+                    <th scope="col">Attach</th>
+                    {{-- <th scope="col">Sponsor</th> --}}
                     <th></th>
                 </tr>
             </thead>
@@ -35,20 +35,27 @@
                                     type="submit">{{ $doctor->is_approved ? 'Reject' : 'Approve' }}</button>
                             </form>
                         </td>
+
                         <td>
+                            <form action="{{ route('doctor.attach.view' , ['doctor' => $doctor]) }}" method="GET">
+                                @csrf
+                                <button class="btn btn-primary" type="submit">Attach to Category</button>
+                            </form>
+                        </td>
+                        {{-- <td>
                             @if ($doctor->sponsor)
                                 <i class="fas fa-check text-success "></i>
                             @else
                                 <i class="fas fa-times text-danger"></i>
                             @endif
-                        </td>
-                        <td>
+                        </td> --}}
+                        {{-- <td>
                             <form action="{{ route('doctor.sponsor', ['doctor' => $doctor]) }}" method="post">
                                 @csrf
                                 <button class="btn btn-{{ $doctor->sponsor ? 'danger' : 'success' }}"
                                     type="submit">{{ $doctor->sponsor ? 'Reject' : 'Approve' }}</button>
                             </form>
-                        </td>
+                        </td> --}}
                         {{-- <td> <a href="{{route('categories.destroy' , ['id' => $category->id])}}"> {{ trans('DELETE') }}
                     </a> </td> --}}
                     </tr>
