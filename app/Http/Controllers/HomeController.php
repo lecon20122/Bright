@@ -25,10 +25,10 @@ class HomeController extends Controller
             DataBaseEnum::VISUAL_DISABILITY => 'danger',
         ];
         $headerImage = [
-            DataBaseEnum::ADHD => 'adhd logo.jpg',
-            DataBaseEnum::AUTISM => 'autism.jpg',
-            DataBaseEnum::DOWN_SYNDROME => 'down.jpg',
-            DataBaseEnum::VISUAL_DISABILITY => 'blind logo.jpg',
+            DataBaseEnum::ADHD => 'autismlogo.jpg',
+            DataBaseEnum::AUTISM => '',
+            DataBaseEnum::DOWN_SYNDROME => '',
+            DataBaseEnum::VISUAL_DISABILITY => '',
         ];
 
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();

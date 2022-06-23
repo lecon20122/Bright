@@ -27,6 +27,7 @@ class User extends Authenticatable
         'description',
         'is_approved',
         'is_active',
+        'sponsor',
         'type',
         'image',
         'price',

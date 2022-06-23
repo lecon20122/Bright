@@ -125,6 +125,19 @@ class DoctorController extends Controller
             return redirect()->back()->with('error', $exception->getMessage());
         }
     }
+    public function toggleSponsorForDoctor(User $doctor)
+    {
+        try {
+            if ($doctor->type == DataBaseEnum::DOCTOR) {
+                $doctor->sponsor = !$doctor->sponsor;
+                $doctor->save();
+            }
+            return Redirect()->back()->with('success', `Doctor $doctor->name is approved successfully`);
+        } catch (Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
+    }
+
 
     public function doctorRegistrationPage()
     {

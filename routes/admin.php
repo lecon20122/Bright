@@ -26,6 +26,7 @@ Route::middleware('auth:admin')->group(function () {
     //doctor
     Route::get('doctors', [doctorController::class, 'index'])->name('doctor.index');
     Route::post('doctors/{doctor}/approve', [doctorController::class, 'toggleApprovalForDoctor'])->name('doctor.approve');
+    Route::post('doctors/{doctor}/sponsor', [doctorController::class, 'togglesponsorForDoctor'])->name('doctor.sponsor');
 
     //shadowteacher
     Route::get('shadowteachers', [shadowteacherController::class, 'index'])->name('shadowteacher.index');

@@ -13,15 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();
-            $table->mediumText('description')->nullable();
-            $table->unsignedBigInteger('parent_id')->nullable();
-         
-            $table->softDeletes();
-            $table->timestamps();
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('sponsor')->default(false)->nullable();
         });
     }
 
@@ -32,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
