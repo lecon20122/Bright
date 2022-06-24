@@ -68,7 +68,7 @@
 
 
     <!-- Call To Action Start -->
-    <div class="container-xxl py-5">
+    {{-- <div class="container-xxl py-5">
         <div class="container">
             <div class="bg-light rounded">
                 <div class="row g-0">
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <!-- Call To Action End -->
+    <!-- Call To Action End --> --}}
 
 
 

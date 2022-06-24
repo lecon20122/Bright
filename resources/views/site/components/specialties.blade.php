@@ -7,7 +7,7 @@
                 لأحتياجك لمختصين </p>
         </div>
         @if ($specialties)
-            <div class="row g-4 ">
+            <div class="row g-4 " >
                 @if (count($specialties->children) > 0)
                     @foreach ($specialties->children as $specialty)
                         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -17,7 +17,7 @@
 
                                 {{-- <div class=""> --}}
                                 <div class="">
-                                    <img src="{{ asset('images/' . $headerImage[$specialty->name]) }}" alt="">
+                                    <img src="{{ asset('images/' . $headerImage[$specialty->name]) }}" alt=""width="300" height="100">
                                     <span class="bg-}}"></span>
                                     {{-- <i class="fa fa-bus-alt fa-3x text-primary"></i> --}}
                                     <i class="fa-3x text-primary"></i>

@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('star')->nullable()->max(5);
-            $table->mediumText('comment');
-            $table->foreignId('doctor_id')->references('id')->on('users');
-            $table->foreignId('user_id')->constrained();
-            $table->timestamps();
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->decimal('price');
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedback');
+        Schema::table('reservations', function (Blueprint $table) {
+            //
+        });
     }
 };

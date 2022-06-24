@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\UpdateUserController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\FeedBackController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -49,3 +50,9 @@ Route::get('schedule', [ReservationTimeController::class, 'viewSchedule'])->name
 Route::post('schedule', [ReservationTimeController::class, 'updateReservationTime'])->name('schedule.update');
 Route::get('schedule/create', [ReservationTimeController::class, 'createSchedule'])->name('schedule.create');
 Route::post('schedule/store', [ReservationTimeController::class, 'storeScheduleTime'])->name('schedule.store');
+
+//feedback
+
+Route::resource('feedback', FeedBackController::class)->except(['index' , 'store']);
+Route::get('feedback/{doctor}/{user}' , [FeedBackController::class , 'index'])->name('feedback.index');
+Route::post('feedback/{doctor}' , [FeedBackController::class , 'store'])->name('feedback.store');

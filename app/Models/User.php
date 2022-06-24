@@ -107,4 +107,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TestScore::class);
     }
+
+    public function feedback()
+    {
+        return $this->hasMany(Feedback::class , 'doctor_id' , 'id');
+    }
 }

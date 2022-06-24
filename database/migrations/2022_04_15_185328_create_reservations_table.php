@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('reservation_time_id')->constrained();
             $table->unsignedBigInteger('doctor_id')->references('id')->on('users');
             $table->foreignId('user_id')->constrained();
-            $table->unsignedDecimal('price');
+            $table->Decimal('price');
             $table->boolean('is_approved')->default(false)->nullable();
             $table->timestamps();
         });

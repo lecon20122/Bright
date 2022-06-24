@@ -25,8 +25,8 @@ class HomeController extends Controller
             DataBaseEnum::VISUAL_DISABILITY => 'danger',
         ];
         $headerImage = [
-            DataBaseEnum::ADHD => 'autismlogo.jpg',
-            DataBaseEnum::AUTISM => '',
+            DataBaseEnum::ADHD => 'adhd2.png',
+            DataBaseEnum::AUTISM => 'aut.png',
             DataBaseEnum::DOWN_SYNDROME => '',
             DataBaseEnum::VISUAL_DISABILITY => '',
         ];
