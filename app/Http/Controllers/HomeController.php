@@ -27,9 +27,10 @@ class HomeController extends Controller
         $headerImage = [
             DataBaseEnum::ADHD => 'adhd2.png',
             DataBaseEnum::AUTISM => 'aut.png',
-            DataBaseEnum::DOWN_SYNDROME => '',
-            DataBaseEnum::VISUAL_DISABILITY => '',
+            DataBaseEnum::DOWN_SYNDROME => '4915786.jpg',
+            DataBaseEnum::VISUAL_DISABILITY => 'visual.png',
         ];
+       
 
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
         $FeaturedCategoryDoctors = Category::where('name', DataBaseEnum::FEATURED)->first();

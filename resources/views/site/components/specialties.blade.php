@@ -1,5 +1,17 @@
+
+<style>
+    .name{
+        font-size: 28px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    }
+    .read{
+     font-size: 20px
+    }
+        </style>
 <div class="container-xxl py-2">
     <div class="container">
+
+
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="mb-3 ">التخصصات</h1>
             <p class="pargraph">نحن هنا لمساعدتك في معرفة التخصصات بشكل اوضح وجعل الوصول للمختصين بسهولة وتقديم اختبارات
@@ -25,9 +37,9 @@
                                 </div>
 
                                 <div class="facility-text bg-primary">
-                                    <h3 class="text-primary mb-3">{{ $specialty->name }}</h3>
-                                    <p class="mb-0 parg"> {{ $specialty->description }}</p>
-                                    <a href="">read more</a>
+                                    <h3 class="text-primary mb-3 name">{{ $specialty->name }}</h3>
+                                    <p class="mb-0 parg "> {{ $specialty->description }}</p>
+                                    <a class="read" href="">قراءة المزيد</a>
 
                                     @auth
                                         @if ($specialty->testScores->isNotEmpty())
@@ -42,12 +54,12 @@
                                         @endif
                                     @endauth
                                     <a class="btn btn-primary"
-                                        href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">See
-                                        Specialists
+                                        href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">المختصين
+
                                     </a>
                                     <a class="btn btn-primary mt-1"
-                                        href="{{ route('clinic-test', ['category' => $specialty]) }}">take
-                                        Test
+                                        href="{{ route('clinic-test', ['category' => $specialty]) }}">بدأ الأختبار
+
                                     </a>
                                     {{-- @endif --}}
                                 </div>

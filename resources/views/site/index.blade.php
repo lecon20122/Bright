@@ -165,7 +165,7 @@
 
 
     <!-- Team Start -->
-    <div class="container-xxl py-5">
+    {{-- <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">Popular Teachers</h1>
@@ -227,7 +227,7 @@
             </div>
         </div>
     </div>
-    <!-- Team End -->
+    <!-- Team End --> --}}
 
 
     <!-- Testimonial Start -->
