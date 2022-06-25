@@ -30,7 +30,13 @@ class HomeController extends Controller
             DataBaseEnum::DOWN_SYNDROME => '4915786.jpg',
             DataBaseEnum::VISUAL_DISABILITY => 'visual.png',
         ];
-       
+        $description = [
+            DataBaseEnum::ADHD => '  اضطراب نقص الأنتباه مع فرط الحركة هو اضطراب نفسي من نوع تأخر النمو العصبي',
+            DataBaseEnum::AUTISM => '"التوحد أو ذاتوية" هو ضعف التفاعل الاجتماعي والتواصل اللفظي وغير اللفظي وأنماط سلوكية مقيدة ومتكررة.',
+            DataBaseEnum::DOWN_SYNDROME => 'متلازمة داون  يصاحب المتلازمة غالباً ضعف في القدرات الذهنية والنمو البدني، وبمظاهر وجهية مميزة',
+            DataBaseEnum::VISUAL_DISABILITY => 'العجز أو الضعف في حاسّة البصر ',
+        ];
+
 
         $specialtiesCategory = Category::with('children')->where('name', DataBaseEnum::SPECIALTIES)->first();
         $FeaturedCategoryDoctors = Category::where('name', DataBaseEnum::FEATURED)->first();
@@ -39,6 +45,7 @@ class HomeController extends Controller
             'specialties' =>  $specialtiesCategory,
             'backgroundColors' => $backgroundColors,
             'headerImage' => $headerImage,
+            'description' => $description,
             'FeaturedCategoryDoctors' => $FeaturedCategoryDoctors,
         ]);
     }

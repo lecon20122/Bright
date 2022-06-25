@@ -38,17 +38,19 @@
 
                                 <div class="facility-text bg-primary">
                                     <h3 class="text-primary mb-3 name">{{ $specialty->name }}</h3>
-                                    <p class="mb-0 parg "> {{ $specialty->description }}</p>
+                                    <p class="mb-0 parg ">{{$description[$specialty->name]}}</p>
+
+                                       {{-- {{ $specialty->description }} --}}
                                     <a class="read" href="">قراءة المزيد</a>
 
                                     @auth
                                         @if ($specialty->testScores->isNotEmpty())
                                             @if ($specialty->testScores()->where('user_id', auth()->user()->id)->first())
                                                 <div class="alert alert-info p-0" role="alert">
-                                                    we reccomend
+                                                    نحن نقترح بنسبة
                                                     {{-- {{ auth()->user()->testScores()->where('category_id', $specialty->id)->first()->total_score }} --}}
                                                     {{ $specialty->testScores()->where('user_id', auth()->user()->id)->first()->total_score ?? '(score not found)' }}
-                                                    to see doctor
+                                                   لزيارة المختص
                                                 </div>
                                             @endif
                                         @endif
