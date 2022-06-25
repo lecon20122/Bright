@@ -10,6 +10,7 @@
         'specialties' => $specialties,
         'backgroundColors' => $backgroundColors,
     ])
+    
     @include('site.components.sponsor', [
         'FeaturedCategoryDoctors' => $FeaturedCategoryDoctors,
         'backgroundColors' => $backgroundColors,

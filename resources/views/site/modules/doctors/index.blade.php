@@ -24,6 +24,7 @@
                         <div class="card mb-3 mx-auto w-100" style="width: 952px;">
                             <div class="row">
                                 <div class="col-md-4 p-0 m-0" style="height: 400px;">
+
                                     <img src="{{ asset('images/users/') . '/' . $doctor->image }}" width="400px"
                                         height="400px" alt="DOCTOR IMAGE" class=" rounded-start" />
                                 </div>
@@ -35,7 +36,7 @@
                                             <div class="col-lg-6">
 
                                                 <p class="card-text paragraph">
-                                                    {{ $doctor->description }}
+                                                    {{ substr($doctor->description, 0, 75) }}
                                                 </p>
                                                 <p class="card-text">
                                                     <small class="text-muted">Last updated 3 mins ago</small>
@@ -54,7 +55,7 @@
                                                 </p>
 
                                             </div>
-                                            @if ($doctor->reservationTimes)
+                                            @if ($doctor->reservationTimes && count($doctor->reservationTimes) > 0)
                                                 <div class="col-lg-6">
                                                     <label for="">Doctor Schedule</label>
                                                     <select class="form-control" name="category_id"
@@ -74,18 +75,24 @@
                                                             @csrf
                                                             <div class="d-grid gap-2">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    type="button">Resevre</button>
+                                                                    type="button">Reserve</button>
                                                             </div>
                                                             <br>
                                                             @auth
-                                                                <a
-                                                                    class="btn btn-primary" href="{{ route('feedback.index', ['user' => auth()->user()->id , 'doctor' => $doctor]) }}">See
+                                                                <a class="btn btn-primary"
+                                                                    href="{{ route('feedback.index', ['user' => auth()->user()->id, 'doctor' => $doctor]) }}">See
                                                                     feedback OR Addfeedback
 
                                                                 </a>
                                                             @endauth
                                                         </form>
                                                     @endauth
+                                                    @guest
+                                                        <div class="d-grid gap-2">
+                                                            <a href="{{ route('login') }}" class="btn btn-primary">Login to
+                                                                Reserve</a>
+                                                        </div>
+                                                    @endguest
                                                 </div>
                                             @endif
                                         </div>

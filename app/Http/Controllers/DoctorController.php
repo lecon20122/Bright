@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\DataBaseEnum;
+use App\Http\Resources\UserResource;
 use App\Models\Category;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -73,9 +74,12 @@ class DoctorController extends Controller
      * @param int $id
      * @return Response
      */
-    public function show($id)
+    public function show($doctor_id)
     {
-        //
+        $doctor = User::where('id' , $doctor_id)->get();
+        return view('site.modules.doctors.index', [
+            'CategoryUsers' => $doctor,
+        ]);
     }
 
     /**
@@ -164,7 +168,7 @@ class DoctorController extends Controller
         ]);
     }
 
-    public function attachDoctorToCategory(Request $request , User $doctor)
+    public function attachDoctorToCategory(Request $request, User $doctor)
     {
         try {
             $category = Category::find($request->category_id);

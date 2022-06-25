@@ -14,13 +14,14 @@ class ReservationController extends Controller
     public function getReservations()
     {
         $user = auth()->user();
-
+        $totalSales = 0;
         if ($user->type == DataBaseEnum::PATIENT) {
             $reservations = $user->reservations()->paginate(5);
         } else {
             $reservations = $user->doctorReservations()->with('reservationTime')->paginate(5);
+            $totalSales = $user->doctorReservations()->sum('price');
+            // dd($user);
         }
-        $totalSales = Reservation::sum('price');
 
         return view(
             'site.modules.user.appointments',

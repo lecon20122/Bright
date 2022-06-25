@@ -3,7 +3,7 @@
  <div class="container-xxl py-5">
      <div class="container">
          <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-             <h1 class="mb-3">Featured</h1>
+             <h1 class="mb-3" id="featered">Featured</h1>
              <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
                  eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
          </div>
@@ -19,7 +19,9 @@
                                  </div>
                                  <div class="bg-light rounded p-4 pt-5 mt-n5">
                                      <a class="d-block text-center h3 mt-3 mb-4"
-                                         href="">{{ $doctor->type }} /{{ $doctor->name }}</a>
+                                         href="{{ route('doctor.show', ['doctor_id' => $doctor->id]) }}">
+                                         <h5>{{ $doctor->type }}/ {{ $doctor->name }}</h5>
+                                     </a>
                                      <div class="d-flex align-items-center justify-content-between mb-4">
                                          <div class="d-flex align-items-center">
                                              <img class="img-fluid"
@@ -31,32 +33,32 @@
                                                  <small>Teacher</small>
                                              </div> --}}
                                          </div>
-                                         <span class="bg-primary text-white rounded-pill py-2 px-3"
-                                             href=""> {{$doctor->price}} EGP</span>
+                                         <span class="bg-primary text-white rounded-pill py-2 px-3" href="">
+                                             {{ $doctor->price }} EGP</span>
                                      </div>
                                      <div class="row g-1">
                                          <div class="col-4">
                                              <div class="border-top border-3 border-primary pt-2">
                                                  <h6 class="text-primary mb-1"> العنوان
-                                                   <br>
-                                                   </h6>
-                                                 <small>{{$doctor->address}}</small>
+                                                     <br>
+                                                 </h6>
+                                                 <small>{{ $doctor->address }}</small>
                                              </div>
                                          </div>
                                          <div class="col-4">
                                              <div class="border-top border-3 border-success pt-2">
                                                  <h6 class="text-success mb-1">وقت_الأنتظار</h6>
-                                                 <small>{{$doctor->wait_time }}</small>
+                                                 <small>{{ $doctor->wait_time }}</small>
                                              </div>
                                          </div>
-                                         <div class="col-4">
+                                         {{-- <div class="col-4">
                                              <div class="border-top border-3 border-warning pt-2">
                                                  <h6 class="text-warning mb-1">التخصص</h6>
                                                  <small>{{$doctor->description }}
-                                                
+
                                                 </small>
                                              </div>
-                                         </div>
+                                         </div> --}}
                                      </div>
                                  </div>
                              </div>

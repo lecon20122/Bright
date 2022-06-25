@@ -110,6 +110,6 @@ class User extends Authenticatable
 
     public function feedback()
     {
-        return $this->hasMany(Feedback::class , 'doctor_id' , 'id');
+        return $this->hasMany(Feedback::class, 'doctor_id', 'id');
     }
 }

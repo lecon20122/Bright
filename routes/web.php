@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\Auth\UpdateUserController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\FeedBackController;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::post('user-profile/{user}/update', [UpdateUserController::class, 'update'])->name('postUpdateUser');
     Route::get('user-profile/appointments', [UserSettingController::class, 'index'])->name('appointment');
     Route::get('answers/{category}', [AnswerController::class, 'storeAnswers'])->name('store-test-question');
+    Route::post('reserve/{reservationTime}/{user}/{doctor}', [ReservationController::class, 'reserveAppointment'])->name('reserve-appointment');
 });
 
 // Doctor // Shadow teacher registration
@@ -42,8 +44,8 @@ Route::get('join-us', [DoctorController::class, 'doctorRegistrationPage'])->name
 //Specialties
 Route::get('specialists/{category}', [DoctorController::class, 'getDoctorsByCategory'])->name('get-doctor-by-category');
 Route::get('clinic/{category}', [DoctorController::class, 'takeClinicTest'])->name('clinic-test');
+Route::get('doctor/{doctor_id}' , [DoctorController::class , 'show'])->name('doctor.show');
 
-Route::post('reserve/{reservationTime}/{user}/{doctor}', [ReservationController::class, 'reserveAppointment'])->name('reserve-appointment');
 Route::post('reserve/{reservation}', [ReservationController::class, 'toggleApprovalForReservation'])->name('reserve-approve');
 Route::get('reservations', [ReservationController::class, 'getReservations'])->name('reservations');
 Route::get('schedule', [ReservationTimeController::class, 'viewSchedule'])->name('schedule');
@@ -56,3 +58,6 @@ Route::post('schedule/store', [ReservationTimeController::class, 'storeScheduleT
 Route::resource('feedback', FeedBackController::class)->except(['index' , 'store']);
 Route::get('feedback/{doctor}/{user}' , [FeedBackController::class , 'index'])->name('feedback.index');
 Route::post('feedback/{doctor}' , [FeedBackController::class , 'store'])->name('feedback.store');
+
+//content
+Route::get('content/{category}' , [ContentController::class , 'getContent'])->name('page.content');

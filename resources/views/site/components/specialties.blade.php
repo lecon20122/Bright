@@ -41,7 +41,7 @@
                                     <p class="mb-0 parg ">{{$description[$specialty->name]}}</p>
 
                                        {{-- {{ $specialty->description }} --}}
-                                    <a class="read" href="">قراءة المزيد</a>
+                                    <a class="read" href="{{ route('page.content' , ['category' => $specialty->name]) }}">قراءة المزيد</a>
 
                                     @auth
                                         @if ($specialty->testScores->isNotEmpty())
