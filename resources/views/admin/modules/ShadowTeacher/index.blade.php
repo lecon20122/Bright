@@ -36,6 +36,7 @@
                         </td>
                         {{-- <td> <a href="{{route('categories.destroy' , ['id' => $category->id])}}"> {{ trans('DELETE') }}
                     </a> </td> --}}
+                    
                     </tr>
                 @endforeach
             </tbody>

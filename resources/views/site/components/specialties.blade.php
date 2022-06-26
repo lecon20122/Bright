@@ -8,10 +8,9 @@
      font-size: 20px
     }
         </style>
+        <div id="specialist"></div>
 <div class="container-xxl py-2">
     <div class="container">
-
-
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="mb-3 ">التخصصات</h1>
             <p class="pargraph">نحن هنا لمساعدتك في معرفة التخصصات بشكل اوضح وجعل الوصول للمختصين بسهولة وتقديم اختبارات
@@ -59,11 +58,13 @@
                                         href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">المختصين
 
                                     </a>
+                                    {{-- @if ( != App\Enums\DataBaseEnum::VISUAL_DISABILITY) --}}
                                     <a class="btn btn-primary mt-1"
                                         href="{{ route('clinic-test', ['category' => $specialty]) }}">بدأ الأختبار
 
                                     </a>
                                     {{-- @endif --}}
+
                                 </div>
                             </div>
                         </div>

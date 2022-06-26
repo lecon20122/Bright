@@ -117,7 +117,7 @@
                         {{-- select department for doctors only --}}
                         <div class="row mb-3 font-color2" style="display: none" id="department">
                             <label class="col-md-4 col-form-label text-md-end" for="exampleFormControlSelect1">Select
-                                Department</label>
+                                Department  </label>
                             <div class="col-md-6 font-color2">
                                 <select class="form-control" name="category_id" id="exampleFormControlSelect1">
                                     @foreach ($categories as $category)

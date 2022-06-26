@@ -3,9 +3,9 @@
  <div class="container-xxl py-5">
      <div class="container">
          <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-             <h1 class="mb-3" id="featered">Featured</h1>
-             <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-                 eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+             <h1 class="mb-3" id="featered">بعض المختصين </h1>
+             {{-- <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
+                 eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> --}}
          </div>
          @if ($FeaturedCategoryDoctors)
              <div class="row g-4">
@@ -51,14 +51,14 @@
                                                  <small>{{ $doctor->wait_time }}</small>
                                              </div>
                                          </div>
-                                         {{-- <div class="col-4">
+                                          <div class="col-4">
                                              <div class="border-top border-3 border-warning pt-2">
                                                  <h6 class="text-warning mb-1">التخصص</h6>
                                                  <small>{{$doctor->description }}
 
                                                 </small>
                                              </div>
-                                         </div> --}}
+                                         </div>
                                      </div>
                                  </div>
                              </div>

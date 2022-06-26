@@ -31,10 +31,10 @@ class HomeController extends Controller
             DataBaseEnum::VISUAL_DISABILITY => 'visual.png',
         ];
         $description = [
-            DataBaseEnum::ADHD => '  اضطراب نقص الأنتباه مع فرط الحركة هو اضطراب نفسي من نوع تأخر النمو العصبي',
+            DataBaseEnum::ADHD => '  اضطراب و نقص الأنتباه مع فرط الحركة هو اضطراب نفسي من نوع تأخر النمو العصبي',
             DataBaseEnum::AUTISM => '"التوحد أو ذاتوية" هو ضعف التفاعل الاجتماعي والتواصل اللفظي وغير اللفظي وأنماط سلوكية مقيدة ومتكررة.',
             DataBaseEnum::DOWN_SYNDROME => 'متلازمة داون  يصاحب المتلازمة غالباً ضعف في القدرات الذهنية والنمو البدني، وبمظاهر وجهية مميزة',
-            DataBaseEnum::VISUAL_DISABILITY => 'العجز أو الضعف في حاسّة البصر ',
+            DataBaseEnum::VISUAL_DISABILITY => ' العجز أو الضعف في حاسّة البصر هو عدم القدرة عن البصر نهائيا أو يكون القدرة علي الابصار ضعيفة',
         ];
 
 

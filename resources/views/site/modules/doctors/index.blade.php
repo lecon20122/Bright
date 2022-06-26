@@ -12,9 +12,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">DOCTORS</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-                    eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                <h1 class="mb-3">المختصين</h1>
+                <p>  من خلالنا يمكنك حجز الأطباء في مختلف التخصصات و ايضا يمكنك ايضا تواصل مع شادوا تيتشر والاتفاق معها وايضا نقدم لك مراكز لتقوم بالأختبارات مثل اختبار التوحد و فرط الحركة والأنتباة </p>
             </div>
             @include('includes.success-alert')
             @include('includes.error-alert')
