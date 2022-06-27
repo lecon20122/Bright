@@ -43,7 +43,7 @@
                         <img class="img-fluid rounded bg-light p-1"
                             src="{{ asset('site/img/WhatsApp Image 2022-06-25 at 10.49.27 PM.jpeg') }}"
                             alt="">
-                        <p>Mariem mekhemer</p>
+                        <p>Mariam mekhemer</p>
                     </div>
 
                     <div class="col-4">
