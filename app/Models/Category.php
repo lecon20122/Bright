@@ -20,7 +20,7 @@ class Category extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'category_users', 'category_id', 'doctor_id')
+        return $this->belongsToMany(User::class, 'category_users', 'category_id', 'doctor_id',)
             ->where([['is_approved', true], ['is_active', true]]);
     }
 

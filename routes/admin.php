@@ -7,6 +7,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\doctorController;
 use App\Http\Controllers\ShadowTeacherController;
+use App\Http\Controllers\CenterController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,7 +32,16 @@ Route::middleware('auth:admin')->group(function () {
 
     //shadow teacher
     Route::get('shadowteachers', [shadowteacherController::class, 'index'])->name('shadowteacher.index');
-    Route::post('shadowteachers/{shadowteacher}/approve', [ShadowTeacherController::class, 'toggleApprovalForshadowteacher'])->name('shadow-teacher.approve');
+    Route::post('shadowteachers/{shadowteacher}/approve', [ShadowTeacherController::class, 'toggleApprovalForShadowTeacher'])->name('shadow-teacher.approve');
+    Route::post('shadowteachers/{shadowteacher}', [ShadowTeacherController::class, 'attachShadowTeacherToCategory'])->name('shadowteacher.attach');
+    Route::get('shadowteachers/{shadowteacher}/attach', [ShadowTeacherController::class, 'attachShadowTeacherToCategoryView'])->name('shadowteacher.attach.view');
+
+
+    //center
+    Route::get('centers', [CenterController::class, 'index'])->name('center.index');
+    Route::post('centers/{center}/approve', [CenterController::class, 'toggleApprovalForCenter'])->name('center.approve');
+    Route::post('centers/{center}', [CenterController::class, 'attachCenterToCategory'])->name('center.attach');
+    Route::get('centers/{center}/attach', [CenterController::class, 'attachCenterToCategoryView'])->name('center.attach.view');
 });
 
 

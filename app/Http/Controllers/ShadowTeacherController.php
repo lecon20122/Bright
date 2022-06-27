@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Enums\DataBaseEnum;
+use App\Models\Category;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Exception;
@@ -99,7 +100,7 @@ class ShadowTeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function toggleApprovalForShadowTeacher(User $shadowteacher)
-    
+
     {
 
         try {
@@ -112,4 +113,49 @@ class ShadowTeacherController extends Controller
             return redirect()->back()->with('error', $exception->getMessage());
         }
     }
-}
+    public function toggleSponsorForshadowteacher(User $shadowteacher)
+    {
+        try {
+            if ($shadowteacher->type == DataBaseEnum::SHADOW_TEACHER) {
+                $shadowteacher->sponsor = !$shadowteacher->sponsor;
+                $shadowteacher->save();
+            }
+            return Redirect()->back()->with('success', `Shadow_teacher $shadowteacher->name is approved successfully`);
+        } catch (Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
+    }
+
+    public function shadowteacherRegistrationPage()
+    {
+        $shadowteacher = Category::with('children')->parent()->where('name', DataBaseEnum::SHADOW_TEACHER)->get();
+
+        return view('auth.join-us', [
+            'categories' => $shadowteacher,
+        ]);
+    }
+    public function getShadowTeachersByCategory(Category $category)
+    {
+        return view('site.modules.doctors.index', [
+            'CategoryUsers' => $category->users,
+        ]);
+    }
+    public function attachShadowTeacherToCategory(Request $request, User $shadowteacher)
+    {
+        try {
+            $category = Category::find($request->category_id);
+            $shadowteacher->categories()->attach($category);
+            return Redirect()->back()->with('success', `Shadow-teacher $shadowteacher->name is attached to $category->name successfully`);
+        } catch (Exception $exception) {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
+    }
+        public function attachShadowTeacherToCategoryView(User $shadowteacher)
+        {
+            return view('admin.modules.ShadowTeacher.edit', [
+                'shadowteacher' => $shadowteacher,
+                'categories' => Category::all(),
+            ]);
+        }
+    }
+

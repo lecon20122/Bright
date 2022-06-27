@@ -11,6 +11,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Status</th>
                     <th scope="col">Controls</th>
+                    <th scope="col">Attach</th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,7 +28,7 @@
                             @endif
                         </td>
                         <td>
-                            <form action="{{ route('shadow-teacher.approve', ['shadowteacher' => $shadowteacher]) }}"
+                            <form action="{{ route('shadow-teacher.approve',['shadowteacher' => $shadowteacher]) }}"
                                 method="post">
                                 @csrf
                                 <button class="btn btn-{{ $shadowteacher->is_approved ? 'danger' : 'success' }}"
@@ -36,7 +37,12 @@
                         </td>
                         {{-- <td> <a href="{{route('categories.destroy' , ['id' => $category->id])}}"> {{ trans('DELETE') }}
                     </a> </td> --}}
-                    
+                    <td>
+                        <form action="{{ route('shadowteacher.attach.view', ['shadowteacher' => $shadowteacher]) }}" method="GET">
+                            @csrf
+                            <button class="btn btn-primary" type="submit">Attach to Category</button>
+                        </form>
+                    </td>
                     </tr>
                 @endforeach
             </tbody>

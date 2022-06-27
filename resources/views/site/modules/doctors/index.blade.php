@@ -13,7 +13,8 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">المختصين</h1>
-                <p>  من خلالنا يمكنك حجز الأطباء في مختلف التخصصات و ايضا يمكنك ايضا تواصل مع شادوا تيتشر والاتفاق معها وايضا نقدم لك مراكز لتقوم بالأختبارات مثل اختبار التوحد و فرط الحركة والأنتباة </p>
+                <p> من خلالنا يمكنك حجز الأطباء في مختلف التخصصات و ايضا يمكنك ايضا تواصل مع شادوا تيتشر والاتفاق معها وايضا
+                    نقدم لك مراكز لتقوم بالأختبارات مثل اختبار التوحد و فرط الحركة والأنتباة </p>
             </div>
             @include('includes.success-alert')
             @include('includes.error-alert')
@@ -24,7 +25,7 @@
                             <div class="row">
                                 <div class="col-md-4 p-0 m-0" style="height: 400px;">
 
-                                    <img src="{{ asset('images/users/') . '/' . $doctor->image }}" width="400px"
+                                    <img src="{{ asset('images/users/') . '/' . $doctor->image }}" width="300px"
                                         height="400px" alt="DOCTOR IMAGE" class=" rounded-start" />
                                 </div>
                                 <div class="col-md-8">
@@ -47,6 +48,8 @@
                                                     <small class="text-muted"><i class="fas fa-stopwatch text-warning"></i>
                                                         {{ $doctor->wait_time }}</small>
                                                 </h4>
+
+
                                                 <p class="card-text paragraph ">
                                                     <small class="text-muted"><i
                                                             class="fas fa-map-marked-alt text-danger"></i>
@@ -85,6 +88,8 @@
                                                                 </a>
                                                             @endauth
                                                         </form>
+
+
                                                     @endauth
                                                     @guest
                                                         <div class="d-grid gap-2">

@@ -47,6 +47,7 @@ class FeedBackController extends Controller
         Feedback::create([
             ...$data,
             'doctor_id' => $doctor_id
+            
         ]);
         return redirect()->back()->with('success', 'done');
         // } catch (\Exception $e) {

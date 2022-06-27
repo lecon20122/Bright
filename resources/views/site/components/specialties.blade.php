@@ -58,12 +58,12 @@
                                         href="{{ route('get-doctor-by-category', ['category' => $specialty]) }}">المختصين
 
                                     </a>
-                                    {{-- @if ( != App\Enums\DataBaseEnum::VISUAL_DISABILITY) --}}
+                                    @if (count($specialty->questions)>0)
                                     <a class="btn btn-primary mt-1"
                                         href="{{ route('clinic-test', ['category' => $specialty]) }}">بدأ الأختبار
 
                                     </a>
-                                    {{-- @endif --}}
+                                     @endif
 
                                 </div>
                             </div>

@@ -4,7 +4,7 @@
         {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
         <span class="brand-text font-weight-light">Bright</span>
     </a>
-  
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -57,6 +57,15 @@
                         <i class="fas fa-chalkboard-teacher"></i>
                         <p>
                             Shadow-Teacher
+                        </p>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('center.index') }}" class="nav-link">
+                        <i class="fas fa-archway"></i>
+                        <p>
+                            Center
                         </p>
 
                     </a>

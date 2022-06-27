@@ -97,6 +97,10 @@ class User extends Authenticatable
     {
         return $query->where('type', DataBaseEnum::SHADOW_TEACHER);
     }
+    public function scopeCenter($query)
+    {
+        return $query->where('type', DataBaseEnum::CENTER);
+    }
 
     public function scopeIsApproved($query)
     {

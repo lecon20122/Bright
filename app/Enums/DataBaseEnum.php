@@ -14,6 +14,7 @@ class DataBaseEnum
 
     // Specialists
     const SPECIALTIES = 'Specialties';
+    const DEPARTMENTS = 'Departments';
     const ADHD = 'ADHD';
     const DOWN_SYNDROME = 'Down Syndrome';
     const AUTISM = 'Autism';
