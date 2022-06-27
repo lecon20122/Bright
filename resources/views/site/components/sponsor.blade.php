@@ -56,7 +56,7 @@
 
                                                 <h6 class="text-success mb-1">وقت_الأنتظار</h6>
                                                 <small>{{ $doctor->wait_time }}</small>
-                                             
+
 
                                             </div>
 
@@ -64,7 +64,7 @@
                                         <div class="col-4">
                                             <div class="border-top border-3 border-warning pt-2">
                                                 <h6 class="text-warning mb-1">التخصص</h6>
-                                                <small>{{ $doctor->description }}
+                                                <small>{{ substr($doctor->description  , 0 , 15) }}
 
                                                 </small>
                                             </div>

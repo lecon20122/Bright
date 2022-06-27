@@ -10,12 +10,14 @@
                 Reservations
             </a>
         </li>
+        @auth()
         @if (auth()->user()->type != App\Enums\DataBaseEnum::PATIENT)
-        <li>
-            <a href="{{ route('schedule') }}" class="nav-link text-white">
-                Schedule
-            </a>
-        </li>
+            <li>
+                <a href="{{ route('schedule') }}" class="nav-link text-white">
+                    Schedule
+                </a>
+            </li>
         @endif
+        @endauth
     </ul>
 </div>

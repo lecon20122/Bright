@@ -22,16 +22,34 @@ class ContentController extends Controller
                 ],
             ],
             DataBaseEnum::AUTISM => [
-                'content' => 'autism',
-                'image' => '',
+                'Introduction' => [
+                    'content' => 'adhd1',
+                    'image' => '',
+                ],
+                'Summary' => [
+                    'content' => 'adhd2',
+                    'image' => '',
+                ],
             ],
             DataBaseEnum::DOWN_SYNDROME => [
-                'content' => 'down',
-                'image' => '',
+                'Introduction' => [
+                    'content' => null,
+                    'image' => null,
+                ],
+                'Summary' => [
+                    'content' => null,
+                    'image' => null,
+                ],
             ],
             DataBaseEnum::VISUAL_DISABILITY => [
-                'content' => 'visual',
-                'image' => '',
+                'Introduction' => [
+                    'content' => null,
+                    'image' => null,
+                ],
+                'Summary' => [
+                    'content' => null,
+                    'image' => null,
+                ],
             ],
         ];
     }
@@ -46,8 +64,8 @@ class ContentController extends Controller
 
         // }
         // $content['content'] // example content for view
-        // return view('', [
-        //     'content' => $content[$category->name]
-        // ]);
+        return view('site.modules.content.index', [
+            'content' => $content[$category->name]
+        ]);
     }
 }

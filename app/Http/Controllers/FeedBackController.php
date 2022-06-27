@@ -16,7 +16,7 @@ class FeedBackController extends Controller
     public function index(User $doctor, User $user)
     {
         return view('site.modules.feedback.index', [
-            'feedback' => Feedback::all(),
+            'feedback' => $doctor->feedback()->get(),
             'doctor' => $doctor,
             'user' => $user,
         ]);
@@ -47,7 +47,7 @@ class FeedBackController extends Controller
         Feedback::create([
             ...$data,
             'doctor_id' => $doctor_id
-            
+
         ]);
         return redirect()->back()->with('success', 'done');
         // } catch (\Exception $e) {
